@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 st.title("Harry Potter Script Analysis")
@@ -21,6 +22,8 @@ with tab1:
   with col2:
     image = Image.open('hpChart.png')
     st.image(image, caption='This will be a description of the chart')
+    fig, ax = plt.subplots()
+    st.pyplot(fig)
   st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
 with tab2:
