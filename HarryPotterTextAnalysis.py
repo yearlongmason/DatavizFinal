@@ -12,6 +12,9 @@ with tab1:
   with col1:
     image = Image.open('hpChart.png')
     st.image(image, caption='Temp Chart tab 1')
+  with col2:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='Temp Chart tab 1 col 2')
   
 with tab2:
   image = Image.open('hpChart.png')
