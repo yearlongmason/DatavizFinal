@@ -13,6 +13,10 @@ with tab1:
     image = Image.open('hpChart.png')
     st.image(image, caption='This will be a description of the chart')
     st.markdown("")
+    st.markdown("")
+    st.markdown("")
+    st.markdown("")
+    st.markdown("")
     st.image(image, caption='This will be a description of the chart')
   with col2:
     image = Image.open('hpChart.png')
