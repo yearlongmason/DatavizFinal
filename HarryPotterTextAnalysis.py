@@ -16,6 +16,7 @@ with tab1:
   with col2:
     image = Image.open('hpChart.png')
     st.image(image, caption='This will be a description of the chart')
+  st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
 with tab2:
   col1, col2 = st.columns(2)
