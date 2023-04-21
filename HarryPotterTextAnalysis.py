@@ -11,19 +11,35 @@ with tab1:
   col1, col2 = st.columns(2)
   with col1:
     image = Image.open('hpChart.png')
-    st.image(image, caption='Temp Chart tab 1')
+    st.image(image, caption='This will be a description of the chart')
+    st.image(image, caption='This will be a description of the chart')
   with col2:
     image = Image.open('hpChart.png')
-    st.image(image, caption='Temp Chart tab 1 col 2')
+    st.image(image, caption='This will be a description of the chart')
   
 with tab2:
-  image = Image.open('hpChart.png')
-  st.image(image, caption='Temp Chart tab 2')
+  col1, col2 = st.columns(2)
+  with col1:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='This will be a description of the chart')
+  with col2:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='This will be a description of the chart')
   
 with tab3:
-  image = Image.open('hpChart.png')
-  st.image(image, caption='Temp Chart tab 3')
+  col1, col2 = st.columns(2)
+  with col1:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='This will be a description of the chart')
+  with col2:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='This will be a description of the chart')
   
 with tab4:
-  image = Image.open('hpChart.png')
-  st.image(image, caption='Temp Chart tab 4')
+  col1, col2 = st.columns(2)
+  with col1:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='This will be a description of the chart')
+  with col2:
+    image = Image.open('hpChart.png')
+    st.image(image, caption='This will be a description of the chart')
