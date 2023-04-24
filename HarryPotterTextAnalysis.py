@@ -12,7 +12,8 @@ st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 mainCol1, mainCol2 = st.columns(2)
 
 with mainCol1:
-  st.title("Harry Potter Script Analysis")
+  #st.title("Harry Potter Script Analysis")
+  st.markdown("<h1 style='text-align: right; color: #000000;'>Author: Mason Lee</h1>", unsafe_allow_html=True)
   st.markdown('This is just some text writing a little bit about the project')
   
 with mainCol2:
