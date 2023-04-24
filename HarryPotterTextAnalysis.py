@@ -9,6 +9,9 @@ from pandasql import sqldf
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 
+image = Image.open('HogwartsLogo.png')
+st.image(image)
+
 mainCol1, mainCol2 = st.columns(2)
 
 with mainCol1:
