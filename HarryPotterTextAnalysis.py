@@ -21,6 +21,7 @@ with mainCol2:
 tab1, tab2, tab3, tab4 = st.tabs(["All 3 Movies", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
 with tab1:
+  st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
   col1, col2 = st.columns(2)
   with col1:
     image = Image.open('hpChart.png')
