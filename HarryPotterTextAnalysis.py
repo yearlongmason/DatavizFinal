@@ -17,6 +17,7 @@ with mainCol1:
   
 with mainCol2:
   st.title('Mason Lee!')
+  st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4 = st.tabs(["All 3 Movies", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
