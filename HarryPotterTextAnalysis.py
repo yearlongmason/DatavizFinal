@@ -8,8 +8,15 @@ from PIL import Image
 from pandasql import sqldf
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
-st.title("Harry Potter Script Analysis")
-st.markdown('This is just some text writing a little bit about the project')
+
+mainCol1, mainCol2 = st.columns(2)
+
+with mainCol1:
+  st.title("Harry Potter Script Analysis")
+  st.markdown('This is just some text writing a little bit about the project')
+  
+with mainCol2:
+  st.title('Mason Lee!')
 
 tab1, tab2, tab3, tab4 = st.tabs(["All 3 Movies", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
