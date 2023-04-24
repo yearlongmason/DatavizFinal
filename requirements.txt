@@ -5,4 +5,4 @@ pandas
 seaborn>=0.11.0
 plotly
 streamlit-extras>=0.2.4
-pandasql
+pandasql>=0.7.3
