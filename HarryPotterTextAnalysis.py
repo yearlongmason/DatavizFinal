@@ -16,8 +16,7 @@ with mainCol1:
   st.markdown('This is just some text writing a little bit about the project')
   
 with mainCol2:
-  st.title('Mason Lee!')
-  st.markdown("<p style='text-align: right; color: red;'>Some title</p>", unsafe_allow_html=True)
+  st.markdown("<h3 style='text-align: right; color: #000000;'>Author: Mason Lee</h3>", unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4 = st.tabs(["All 3 Movies", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
