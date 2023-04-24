@@ -1,7 +1,11 @@
+import pandas as pd
+import numpy as np
+import altair as alt
 import streamlit as st
 from PIL import Image
-import matplotlib.pyplot as plt
-import seaborn as sns
+from pandasql import sqldf
+#import matplotlib.pyplot as plt
+#import seaborn as sns
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 st.title("Harry Potter Script Analysis")
