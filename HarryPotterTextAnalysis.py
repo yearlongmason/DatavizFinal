@@ -10,7 +10,7 @@ from pandasql import sqldf
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 
 image = Image.open('HogwartsLogo.png')#.resize((300, 175))
-st.image(image)
+st.image(image, use_column_width=True)
 
 mainCol1, mainCol2 = st.columns(2)
 
