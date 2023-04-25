@@ -9,10 +9,21 @@ from pandasql import sqldf
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 
-left_co, cent_co,last_co = st.columns(3)
-with cent_co:
-  image = Image.open('HogwartsLogo.png')#.resize((300, 175))
-  st.image(image)
+image = Image.open('HogwartsLogo.png')#.resize((300, 175))
+st.markdown(
+    """
+    <style>
+        button[title^=Exit]+div [data-testid=image]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+#image = Image.open('HogwartsLogo.png')#.resize((300, 175))
+#st.image(image)
 
 mainCol1, mainCol2 = st.columns(2)
 
