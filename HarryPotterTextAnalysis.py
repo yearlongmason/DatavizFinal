@@ -6,12 +6,19 @@ import seaborn as sns
 import streamlit as st
 from PIL import Image
 from pandasql import sqldf
+import base64
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 
 #image = Image.open('HogwartsLogo.png')#.resize((300, 175))
 #st.image(image)
-st.markdown('<center><img src="HogwartsLogo.png" alt="Hogwarts Logo"></center>', unsafe_allow_html=True)
+#st.markdown('<center><img src="HogwartsLogo.png" alt="Hogwarts Logo"></center>', unsafe_allow_html=True)
+file_ = open("HogwartsLogo.png", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+st.markdown(f'<img src="data:image/gif;base64,{data_url}" alt="Hogwarts Logo">', unsafe_allow_html=True)
+
 
 
 mainCol1, mainCol2 = st.columns(2)
