@@ -20,6 +20,7 @@ st.markdown(f'<center><img src="data:image/gif;base64,{imgurl}" alt="Hogwarts Lo
 
 mainCol1, mainCol2 = st.columns(2)
 
+"""
 with mainCol1:
   st.title("Harry Potter Script Analysis")
   st.markdown('This is just some text writing a little bit about the project')
@@ -27,7 +28,9 @@ with mainCol1:
 with mainCol2:
   st.markdown("<h3 style='text-align: center; color: #000000;'>Author: Mason Lee</h3>", unsafe_allow_html=True)
   st.markdown("As a kid, I was always a huge fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
-
+"""
+st.markdown("<h3 style='text-align: center; color: #000000;'>An Analysis of the scripts of the first three Harry Potter Movies by Mason Lee</h3>", unsafe_allow_html=True)
+st.markdown("As a kid, I was always a huge fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
 tab1, tab2, tab3, tab4 = st.tabs(["All 3 Movies", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
 with tab1:
