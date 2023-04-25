@@ -8,11 +8,8 @@ from PIL import Image
 from pandasql import sqldf
 import base64
 
-st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
+st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
 
-#image = Image.open('HogwartsLogo.png')#.resize((300, 175))
-#st.image(image)
-#st.markdown('<center><img src="HogwartsLogo.png" alt="Hogwarts Logo"></center>', unsafe_allow_html=True)
 #Displaying the HogwartsLogo.png at the top of the page
 with open("HogwartsLogo.png", "rb") as file:
   contents = file.read()
@@ -29,6 +26,7 @@ with mainCol1:
   
 with mainCol2:
   st.markdown("<h3 style='text-align: right; color: #000000;'>Author: Mason Lee</h3>", unsafe_allow_html=True)
+  st.markdown("As a fan of the Harry Potter movies from since I was a child, I thought it could be really fun to do some sort of analysis on the movies. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
 
 tab1, tab2, tab3, tab4 = st.tabs(["All 3 Movies", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
