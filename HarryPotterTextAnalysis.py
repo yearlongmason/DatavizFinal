@@ -9,8 +9,9 @@ from pandasql import sqldf
 
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide")
 
-image = Image.open('HogwartsLogo.png')#.resize((300, 175))
-st.image(image)
+#image = Image.open('HogwartsLogo.png')#.resize((300, 175))
+st.markdown('<p style="text-align:center;"><img src="HogwartsLogo.png" alt="Logo"></p>')
+#st.image(image)
 
 mainCol1, mainCol2 = st.columns(2)
 
