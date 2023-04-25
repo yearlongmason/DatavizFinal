@@ -50,22 +50,11 @@ with tab1:
     st.image(image, caption='This will be a description of the chart')
     #fig, ax = plt.subplots()
     #st.pyplot(fig)
-    source = pd.DataFrame({
-        'Trial A': np.random.normal(0, 0.8, 1000),
-        'Trial B': np.random.normal(-2, 1, 1000),
-        'Trial C': np.random.normal(3, 2, 1000)
-    })
+    chart = source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
 
-    chart = alt.Chart(source).transform_fold(
-        ['Trial A', 'Trial B', 'Trial C'],
-        as_=['Experiment', 'Measurement']
-    ).mark_bar(
-        opacity=0.3,
-        binSpacing=0
-    ).encode(
-        alt.X('Measurement:Q').bin(maxbins=100),
-        alt.Y('count()').stack(None),
-        alt.Color('Experiment:N')
+    alt.Chart(source).mark_bar().encode(
+      x='a',
+      y='b'
     )
     st.altair_chart(chart)
   st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
