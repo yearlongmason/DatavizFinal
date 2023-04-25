@@ -50,7 +50,7 @@ with tab1:
     st.image(image, caption='This will be a description of the chart')
     #fig, ax = plt.subplots()
     #st.pyplot(fig)
-    chart = source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
+    source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
 
     chart = alt.Chart(source).mark_bar().encode(x='a', y='b')
     chart = chart.properties(width=700, height=375)
