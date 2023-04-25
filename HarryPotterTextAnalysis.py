@@ -50,6 +50,8 @@ with tab1:
     st.image(image, caption='This will be a description of the chart')
     #fig, ax = plt.subplots()
     #st.pyplot(fig)
+    chart = alt.Chart.mark_bar()
+    st.altair_chart(chart)
   st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
 with tab2:
