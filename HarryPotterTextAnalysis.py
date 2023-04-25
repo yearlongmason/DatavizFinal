@@ -50,16 +50,12 @@ with tab1:
     st.image(image, caption='This will be a description of the chart')
     #fig, ax = plt.subplots()
     #st.pyplot(fig)
+    
     source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
-
     chart = alt.Chart(source).mark_bar().encode(x='a', y='b')
     chart = chart.properties(width=700, height=375) #Set figure size
-    chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
-    chart = chart.configure_title(fontSize=20) #Sets title size
-    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
-    chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
-
     st.altair_chart(chart)
+    
   st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
 with tab2:
