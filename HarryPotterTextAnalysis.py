@@ -52,10 +52,7 @@ with tab1:
     #st.pyplot(fig)
     chart = source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
 
-    alt.Chart(source).mark_bar().encode(
-      x='a',
-      y='b'
-    )
+    chart = alt.Chart(source).mark_bar().encode(x='a', y='b')
     st.altair_chart(chart)
   st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
