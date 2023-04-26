@@ -303,7 +303,7 @@ def linesPerHouse(data):
     labelVals = [1,2,3]
     #Create chart
     chart = alt.Chart(houseLines, title = 'Number of Lines per House').mark_bar().encode(
-        alt.X('House', sort=alt.EncodingSortField(field="Number of Lines", op="count", order='ascending'),\
+        alt.X('House', sort=houses,\
              axis=alt.Axis(labelAngle=0)),
         alt.Y('Sentence', title='Number of Lines (log10 scale)',\
               scale=alt.Scale(domain=[0, houseLines['Sentence'].max()+houseLines['Sentence'].max()*.007]),\
