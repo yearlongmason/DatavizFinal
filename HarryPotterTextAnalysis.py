@@ -243,6 +243,7 @@ def linesPerCharacter(data):
     spokenLines=data.drop(['normText', 'House', 'MovieName', 'MovieNumber', 'numWords'], axis=1) #Drops unnecessary cols
     spokenLines = spokenLines.groupby('Character', as_index=False).count() #Groups by Character and counts the lines
     spokenLines.sort_values('Sentence', ascending=False, inplace=True) #Sorts values
+    spokenLines = spokenLines[spokenLines['Character'] != 'Background Character'] #Removing background character becasue it doesn't make much sense in this visualization
 
     #Getting the house for each character
     house=[]
@@ -260,6 +261,7 @@ def linesPerCharacter(data):
 
     #Adding columns that couldn't be aggregated in groupby
     spokenLines['House'] = house
+    
     
     #Defining these for setting color
     houseColors = {'Gryffindor':'#be0119', 'Slytherin':'#009500', 'Ravenclaw':'#069af3', 'Muggle':'#5f6b73'}
