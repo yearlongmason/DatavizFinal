@@ -92,7 +92,7 @@ hp2['Character'] = [x.title().replace(' ', '') for x in hp2['Character']] #Remov
 hp2['Character'] = ['Vernon' if x=='UncleVernon' else x for x in hp2['Character']]
 hp2['Character'] = ['Petunia' if x=='AuntPetunia' else x for x in hp2['Character']]
 hp2['Character'] = ['Petunia & Dudley' if x=='Aunt\xa0Petunia\xa0&Dudley' else x for x in hp2['Character']]
-hp2['Character'] = ['Lucius Malfoy' if x=='LuciusMalfoy' else x for x in hp2['Character']]
+hp2['Character'] = ['Lucius' if x=='LuciusMalfoy' else x for x in hp2['Character']]
 hp2['Character'] = ['Ron and Harry' if x=='HarryAndRon' else x for x in hp2['Character']]
 hp2['Character'] = ['Professor Sprout' if x=='ProfessorSprout' else x for x in hp2['Character']]
 hp2['Character'] = ['Penelope Clearwater' if x=='PenelopeClearwater' else x for x in hp2['Character']]
