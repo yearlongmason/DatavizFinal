@@ -46,6 +46,35 @@ backgroundCharacters=['Someone', 'Man', 'Witch', 'Boy', 'Girl', 'Crowd', 'Gryffi
 hp1['Character'] = ['Background Character' if x in backgroundCharacters else x for x in hp1['Character']]
 
 
+#Creating column for number of words per sentence
+hp1['numWords'] = [len(x.split(' ')) for x in hp1['Sentence']]
+
+
+#Defining houses
+Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
+           'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
+           'Oliver Wood', 'Ron and Harry', 'LeeJordan']
+Slytherin=['Draco', 'Snape', 'Flint', 'Voldemort']
+Ravenclaw=['Quirrell', 'Ollivander', 'Madam Hooch', 'Flitwick']
+Hufflepuff=[]
+Other=['Petunia', 'Dudley', 'Vernon', 'Snake', 'Background Character', 'Barkeep', 'Griphook', 'Train Master',\
+      'Trolley Witch', 'Sorting Hat', 'Man in Painting', 'Students', 'Filch', 'Firenze']
+
+#Making a list of all housing assignments per line
+hp1House=[]
+for i in hp1['Character']:
+    if i in Gryffindor:
+        hp1House.append('Gryffindor')
+    elif i in Slytherin:
+        hp1House.append('Slytherin')
+    elif i in Ravenclaw:
+        hp1House.append('Ravenclaw')
+    elif i in Hufflepuff:
+        hp1House.append('Hufflepuff')
+    else:
+        hp1House.append('Muggle')
+hp1['House'] = hp1House
+
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
