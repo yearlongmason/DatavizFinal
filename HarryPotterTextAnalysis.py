@@ -178,6 +178,43 @@ hp3['Character'] = ['Background Character' if x in backgroundCharacters else x f
 #Creating column for number of words per sentence
 hp3['numWords'] = [len(x.split(' ')) for x in hp3['Sentence']]
 
+#Defining houses
+Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
+           'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
+           'Oliver', 'Ron and Harry', 'LeeJordan', 'Mr.Weasley', 'Fred,George,Ron', 'Fred,George,Ron,Harry', 'Colin',\
+           'Oliver Wood', 'Lupin', 'Bem', 'Parvati', 'Fred and George', 'Peter Pettigrew', 'Sirius']
+
+Slytherin=['Draco', 'Snape', 'Flint', 'Voldemort', 'Mr.Borgin', 'Lucius Malfoy', 'Crabbe', 'Tom Riddle', 'Fudge',\
+          'Stan Shunpike', 'Pansy Parkinson', 'Goyle']
+
+Ravenclaw=['Quirrell', 'Ollivander', 'Madam Hooch', 'Flitwick', 'Lockhart', 'Penelope Clearwater', 'Moaning Myrtle',\
+          'Trelawney']
+
+Hufflepuff=['Professor Sprout', 'Madam Pomfrey', 'Justin Finch-Fletchley']
+
+Other=['Petunia', 'Dudley', 'Vernon', 'Snake', 'Background Character', 'Barkeep', 'Griphook', 'Train Master',\
+      'Trolley Witch', 'Sorting Hat', 'Man in Painting', 'Students', 'Filch', 'Firenze', 'Dobby', 'Petunia & Dudley',\
+      'Cornish Pixies', 'Aragog', 'Aunt Marge', 'Shrunken Head', 'Madam Rosmerta']
+
+#Making a list of all housing assignments per line
+house=[]
+for i in hp3['Character']:
+    if i in Gryffindor:
+        house.append('Gryffindor')
+    elif i in Slytherin:
+        house.append('Slytherin')
+    elif i in Ravenclaw:
+        house.append('Ravenclaw')
+    elif i in Hufflepuff:
+        house.append('Hufflepuff')
+    else:
+        house.append('Muggle')
+hp3['House'] = house
+
+#Creates movie name and movie number column for when all dataframes are combined
+hp3['MovieName'] = 'Harry Potter and the Prisoner of Azkaban'
+hp3['MovieNumber'] = 3
+
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
