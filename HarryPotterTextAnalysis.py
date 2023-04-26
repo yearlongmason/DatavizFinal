@@ -223,7 +223,62 @@ hp123 = pd.concat([hp1, hp2, hp3])
 
 
 
+#Dataviz functions
+def linesPerCharacter(data):
+    #Defining houses
+    Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
+               'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
+               'Oliver', 'Ron and Harry', 'LeeJordan', 'Mr.Weasley', 'Fred,George,Ron', 'Fred,George,Ron,Harry', 'Colin',\
+               'Oliver Wood', 'Lupin', 'Bem', 'Parvati', 'Fred and George', 'Peter Pettigrew', 'Sirius']
+    Slytherin=['Draco', 'Snape', 'Flint', 'Voldemort', 'Mr.Borgin', 'Lucius Malfoy', 'Crabbe', 'Tom Riddle', 'Fudge',\
+              'Stan Shunpike', 'Pansy Parkinson', 'Goyle']
+    Ravenclaw=['Quirrell', 'Ollivander', 'Madam Hooch', 'Flitwick', 'Lockhart', 'Penelope Clearwater', 'Moaning Myrtle',\
+              'Trelawney']
+    Hufflepuff=['Professor Sprout', 'Madam Pomfrey', 'Justin Finch-Fletchley']
+    Other=['Petunia', 'Dudley', 'Vernon', 'Snake', 'Background Character', 'Barkeep', 'Griphook', 'Train Master',\
+          'Trolley Witch', 'Sorting Hat', 'Man in Painting', 'Students', 'Filch', 'Firenze', 'Dobby', 'Petunia & Dudley',\
+          'Cornish Pixies', 'Aragog', 'Aunt Marge', 'Shrunken Head', 'Madam Rosmerta']
 
+    #Getting new data that's grouped by the character
+    spokenLines=data.drop(['normText', 'House', 'MovieName', 'MovieNumber', 'numWords'], axis=1) #Drops unnecessary cols
+    spokenLines = spokenLines.groupby('Character', as_index=False).count() #Groups by Character and counts the lines
+    spokenLines.sort_values('Sentence', ascending=False, inplace=True) #Sorts values
+
+    #Getting the house for each character
+    house=[]
+    for i in spokenLines['Character']:
+        if i in Gryffindor:
+            house.append('Gryffindor')
+        elif i in Slytherin:
+            house.append('Slytherin')
+        elif i in Ravenclaw:
+            house.append('Ravenclaw')
+        elif i in Hufflepuff:
+            house.append('Hufflepuff')
+        else:
+            house.append('Muggle')
+
+    #Adding columns that couldn't be aggregated in groupby
+    spokenLines['House'] = house
+    
+    #Defining these for setting color
+    houseColors = {'Gryffindor':'#be0119', 'Slytherin':'#009500', 'Ravenclaw':'#069af3', 'Muggle':'#5f6b73'}
+
+    #Creating the chart
+    chart = alt.Chart(spokenLines.head(11), title = 'Number of Lines per Character').mark_bar().encode(
+        alt.X('Character', sort=alt.EncodingSortField(field="Character", op="count", order='ascending'),\
+              axis=alt.Axis(labelAngle=0)), #Character sorted by number of lines
+        alt.Y('Sentence'), #Number of lines
+        color = alt.Color('House', scale=alt.Scale(domain=list(houseColors.keys()), range=list(houseColors.values()))),
+        tooltip = ['House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
+    )
+    chart = chart.properties(width=750, height=400) #Set figure size
+    chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
+    chart = chart.configure_title(fontSize=20) #Sets title size
+    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
+    chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart 
+    
+    return chart
 
 
 
@@ -271,11 +326,7 @@ with tab1:
         st.markdown("")
         st.markdown("")
 
-        source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
-        chart = alt.Chart(source).mark_bar().encode(x='a', y='b')
-        chart = chart.properties(width=700, height=375) #Set figure size
-        chart = chart.properties(title='HP Data')
-        st.altair_chart(chart)
+        st.altair_chart(linesPerCharacter(hp123))
     
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
