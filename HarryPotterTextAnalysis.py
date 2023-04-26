@@ -310,11 +310,6 @@ with tab1:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerCharacter(hp123))
-        st.markdown("")
-        st.markdown("")
-        st.markdown("")
-        st.markdown("")
-        st.markdown("")
     with col2:
         st.altair_chart(linesPerCharacter(hp123))
     
@@ -325,11 +320,9 @@ with tab2:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone")
     col1, col2 = st.columns(2)
     with col1:
-        image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp1))
     with col2:
-        image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp1))
   
   
 with tab3:
