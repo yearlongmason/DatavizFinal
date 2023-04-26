@@ -270,7 +270,7 @@ def linesPerCharacter(data):
     chart = alt.Chart(spokenLines.head(11), title = 'Number of Lines per Character').mark_bar().encode(
         alt.X('Character', sort=alt.EncodingSortField(field="Character", op="count", order='ascending'),\
               axis=alt.Axis(labelAngle=-60)), #Character sorted by number of lines
-        alt.Y('Sentence'), #Number of lines
+        alt.Y('Sentence', title='Number of Lines'), #Number of lines
         color = alt.Color('House', scale=alt.Scale(domain=list(houseColors.keys()), range=list(houseColors.values()))),
         tooltip = ['Character', 'House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
     )
