@@ -150,6 +150,35 @@ hp2['MovieNumber'] = 2
 #Harry Potter and the Prisoner of Azkaban (hp3) data cleaning
 hp3 = pd.read_csv('HarryPotter3.csv', sep=';')
 
+#Renaming columns to be consistent with the other 2 dataframes
+hp3.rename(columns = {'CHARACTER':'Character', 'SENTENCE':'Sentence'}, inplace=True)
+
+#Normalizing text (all lowercase, no special characters)
+alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ',\
+         '0','1','2','3','4','5','6','7','8','9', '-'] #Defines all characters I want to keep
+hp3['normText']=[x.lower() for x in hp3['Sentence']] #Sets normalized text to the lowercase Sentence
+for i in range(len(hp3)): #Gets rid of all special characters
+    hp3.at[i, 'normText'] = ''.join([str(x.lower()) if x in alphabet else '' for x in hp3.iloc[i]['normText']])
+
+#Fixing any name irregularities as well as categorizing background characters
+hp3['Character'] = [x.title() for x in hp3['Character']]
+hp3['Character'] = ['Petunia' if x == 'Aunt Petunia' else x for x in hp3['Character']]
+hp3['Character'] = ['Vernon' if x == 'Uncle Vernon' else x for x in hp3['Character']]
+hp3['Character'] = ['Stan Shunpike' if x == '\nStan Shunpike' else x for x in hp3['Character']]
+hp3['Character'] = ['Mrs.Weasley' if x == 'Mrs. Weasley' else x for x in hp3['Character']]
+hp3['Character'] = ['Mr.Weasley' if x == 'Mr. Weasley' else x for x in hp3['Character']]
+hp3['Character'] = ['McGonagall' if x == 'Mcgonagall' else x for x in hp3['Character']]
+hp3['Character'] = ['Fred and George' if x == 'Fred & George' else x for x in hp3['Character']]
+hp3['Character'] = ['Peter Pettigrew' if x == 'Pettigrew' else x for x in hp3['Character']]
+#People I would classify as a general "Other" category
+backgroundCharacters = ['Tom', 'Vendor', 'Housekeeper', 'Boy', 'Class', 'Teacher', 'Crowd', 'Man', 'Witch',\
+                       'Shrunken Head 1', 'Shrunken Head 2', 'Voice', 'Boy 1', 'Boy 2']
+hp3['Character'] = ['Background Character' if x in backgroundCharacters else x for x in hp3['Character']]
+
+#Creating column for number of words per sentence
+hp3['numWords'] = [len(x.split(' ')) for x in hp3['Sentence']]
+
+
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
 
