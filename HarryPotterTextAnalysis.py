@@ -329,19 +329,16 @@ with tab3:
     st.title("Analysis of Harry Potter and the Chamber of Secrets")
     col1, col2 = st.columns(2)
     with col1:
-        image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp2))
     with col2:
         image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp2))
   
   
 with tab4:
     st.title("Analysis of Harry Potter and the Prizoner of Azkaban")
     col1, col2 = st.columns(2)
     with col1:
-        image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp3))
     with col2:
-        image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp3))
