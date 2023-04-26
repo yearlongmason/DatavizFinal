@@ -217,14 +217,7 @@ hp3['MovieNumber'] = 3
 
 
 #Creating dataframe for all three movies combined (hp123)
-query = """
-SELECT * FROM hp1
-UNION
-SELECT * FROM hp2
-UNION
-SELECT * FROM hp3
-ORDER BY MovieNumber;
-""" #Using SQL commands to get the union of all three movies
+query = """SELECT * FROM hp1 UNION SELECT * FROM hp2 UNION SELECT * FROM hp3 ORDER BY MovieNumber;""" #Using SQL commands to get the union of all three movies
 hp123 = sqldf(query, globals())
 
 
