@@ -9,6 +9,8 @@ from PIL import Image
 import base64
 
 #Data cleaning
+
+#Harry Potter and The Sorcerer's Stone (hp1) data cleaning
 hp1 = pd.read_csv('HarryPotter1.csv', sep=';')
 
 #Normalizing text (all lowercase, no special characters)
@@ -18,6 +20,32 @@ alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r
 hp1['normText']=[x.lower() for x in hp1['Sentence']] #Sets normalized text to the lowercase Sentence
 for i in range(len(hp1)): #Gets rid of all special characters
     hp1.at[i, 'normText'] = ''.join([str(x.lower()) if x in alphabet else '' for x in hp1.iloc[i]['normText']])
+
+#fixes some mistakes in name formatting
+hp1['Character'] = [x.replace(' ', '') for x in hp1['Character']] #Remove spaces from Character names
+hp1['Character'] = ['Barkeep' if x=='Barkeep\xa0Tom' else x for x in hp1['Character']]
+hp1['Character'] = ['Train Master' if x=='Trainmaster' else x for x in hp1['Character']]
+hp1['Character'] = ['Sorting Hat' if x=='SortingHat' else x for x in hp1['Character']]
+hp1['Character'] = ['Sir Nicholas' if x=='SirNicholas' else x for x in hp1['Character']]
+hp1['Character'] = ['Man in Painting' if x=='Maninpaint' else x for x in hp1['Character']]
+hp1['Character'] = ['Fat Lady' if x=='FatLady' else x for x in hp1['Character']]
+hp1['Character'] = ['Madam Hooch' if x=='MadamHooch' else x for x in hp1['Character']]
+hp1['Character'] = ['Ron and Harry' if x=='RonandHarry' else x for x in hp1['Character']]
+hp1['Character'] = ['Oliver Wood' if x=='OIiver' else x for x in hp1['Character']]
+hp1['Character'] = ['Oliver Wood' if x=='Oliver' else x for x in hp1['Character']]
+hp1['Character'] = ['Harry, Ron, and Hermione' if x=='All3' else x for x in hp1['Character']]
+hp1['Character'] = ['Hermione' if x=='Hermoine' else x for x in hp1['Character']]
+hp1['Character'] = ['Draco' if x=='Malfoy' else x for x in hp1['Character']]
+hp1['Character'] = ['Students' if x=='Class' else x for x in hp1['Character']]
+hp1['Character'] = ['Trolley Witch' if x=='Woman' else x for x in hp1['Character']]
+hp1.at[729, 'Character'] = 'Harry, Ron, and Hermione' #Very specific case that I researched
+hp1.at[928, 'Character'] = 'Crowd' #Very specific case that I researched
+hp1.at[463, 'Character'] = 'Neville'
+#People I would classify as a general "Other" category
+backgroundCharacters=['Someone', 'Man', 'Witch', 'Boy', 'Girl', 'Crowd', 'Gryffindors', 'Goblin']
+hp1['Character'] = ['Background Character' if x in backgroundCharacters else x for x in hp1['Character']]
+
+
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
