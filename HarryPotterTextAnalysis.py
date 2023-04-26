@@ -3,11 +3,16 @@ import numpy as np
 import altair as alt
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pandasql import sqldf
 import streamlit as st
 from PIL import Image
-from pandasql import sqldf
 import base64
 
+#Data cleaning
+hp1 = pd.read_csv('HarryPotter1.csv', sep=';')
+
+
+#Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
 
 #Displaying the HogwartsLogo.png at the top of the page
