@@ -295,8 +295,13 @@ def linesPerHouse(data):
         houseLines.loc[len(houseLines.index)] = ['Hufflepuff'] + list(np.zeros(len(data.columns)))
         
     #Define color parameters
-    houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
-    colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
+    #Define color parameters
+    if 'Hufflepuff' in list(data['House']):
+        houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
+        colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
+    else:
+        houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Muggle', 'Hufflepuff']
+        colors = ['#be0119', '#009500', '#069af3', '#5f6b73', '#feb308']
     
     #setting axis labels [weird javascript thing >:(]
     axisLabels = "datum.label == 1 ? '10 lines' : datum.label == 2 ? '100 lines' : '1000 lines'"
