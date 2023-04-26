@@ -316,7 +316,7 @@ with tab1:
         st.markdown("")
         st.markdown("")
     with col2:
-        pass
+        st.altair_chart(linesPerCharacter(hp123))
     
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
