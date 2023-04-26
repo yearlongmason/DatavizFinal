@@ -112,6 +112,40 @@ backgroundCharacters = ['Witch', 'Man', 'Photographer', 'Trainmaster', 'Class', 
                        'Slytherins', 'Diary', 'Student']
 hp2['Character'] = ['Background Character' if x in backgroundCharacters else x for x in hp2['Character']]
 
+#Creating column for number of words per sentence
+hp2['numWords'] = [len(x.split(' ')) for x in hp2['Sentence']]
+
+#Defining houses
+Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
+           'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
+           'Oliver', 'Ron and Harry', 'LeeJordan', 'Mr.Weasley', 'Fred,George,Ron', 'Fred,George,Ron,Harry', 'Colin',\
+           'Oliver Wood']
+Slytherin=['Draco', 'Snape', 'Flint', 'Voldemort', 'Mr.Borgin', 'Lucius Malfoy', 'Crabbe', 'Tom Riddle', 'Fudge']
+Ravenclaw=['Quirrell', 'Ollivander', 'Madam Hooch', 'Flitwick', 'Lockhart', 'Penelope Clearwater', 'Moaning Myrtle']
+Hufflepuff=['Professor Sprout', 'Madam Pomfrey', 'Justin Finch-Fletchley']
+Other=['Petunia', 'Dudley', 'Vernon', 'Snake', 'Background Character', 'Barkeep', 'Griphook', 'Train Master',\
+      'Trolley Witch', 'Sorting Hat', 'Man in Painting', 'Students', 'Filch', 'Firenze', 'Dobby', 'Petunia & Dudley',\
+      'Cornish Pixies', 'Aragog']
+
+#Making a list of all housing assignments per line
+house=[]
+for i in hp2['Character']:
+    if i in Gryffindor:
+        house.append('Gryffindor')
+    elif i in Slytherin:
+        house.append('Slytherin')
+    elif i in Ravenclaw:
+        house.append('Ravenclaw')
+    elif i in Hufflepuff:
+        house.append('Hufflepuff')
+    else:
+        house.append('Muggle')
+hp2['House'] = house
+
+#Creates movie name and movie number column for when all dataframes are combined
+hp2['MovieName'] = 'Harry Potter and the Chamber of Secrets'
+hp2['MovieNumber'] = 2
+
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
@@ -127,7 +161,7 @@ st.markdown("<h3 style='text-align: center; color: #000000;'>An analysis of the 
 st.markdown("As a kid, I was always a big fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
 st.markdown("fundamental research question will go here")
 st.markdown("Describe the data here")
-#st.markdown(hp2.iloc[0]['Character'] + ' ' + hp2.iloc[0]['House'] + ' ' + hp2.iloc[0]['Sentence'] + ' Number of words: ' + str(hp2.iloc[0]['numWords']))
+st.markdown("{hp2.iloc[0]['MovieName'}\n{hp2.iloc[0]['MovieNumber'}\n{hp2.iloc[0]['Character']}\n{hp2.iloc[0]['House']}\n{hp2.iloc[0]['Sentence']}\nNumber of words: {str(hp2.iloc[0]['numWords'])}")
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["First 3 Movies Combined", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
