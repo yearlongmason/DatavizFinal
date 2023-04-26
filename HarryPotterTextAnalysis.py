@@ -349,11 +349,11 @@ def numWordsVP(data):
     ax.spines['left'].set_color('xkcd:gray')
     ax.spines['right'].set_color(c)
     
-    ax.legend(houses, bbox_to_anchor=(1.0, 1), loc="upper left", frameon=False, fontsize=13)
-    leg = ax.get_legend()
-    leg.set_title("House")
-    [leg.legendHandles[colors.index(x)].set_color(x) for x in colors]
-    plt.rcParams['legend.title_fontsize'] = 14
+    #ax.legend(houses, bbox_to_anchor=(1.0, 1), loc="upper left", frameon=False, fontsize=13)
+    #leg = ax.get_legend()
+    #leg.set_title("House")
+    #[leg.legendHandles[colors.index(x)].set_color(x) for x in colors]
+    #plt.rcParams['legend.title_fontsize'] = 14
     return fig
 
 
