@@ -270,7 +270,7 @@ def linesPerCharacter(data):
               axis=alt.Axis(labelAngle=0)), #Character sorted by number of lines
         alt.Y('Sentence'), #Number of lines
         color = alt.Color('House', scale=alt.Scale(domain=list(houseColors.keys()), range=list(houseColors.values()))),
-        tooltip = ['House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
+        tooltip = ['Character', 'House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
     )
     chart = chart.properties(width=750, height=400) #Set figure size
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
