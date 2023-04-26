@@ -359,7 +359,7 @@ with tab2:
     with col1:
         st.altair_chart(linesPerCharacter(hp1))
     with col2:
-        st.altair_chart(linesPerCharacter(hp1))
+        st.altair_chart(linesPerHouse(hp1))
   
   
 with tab3:
@@ -369,7 +369,7 @@ with tab3:
         st.altair_chart(linesPerCharacter(hp2))
     with col2:
         image = Image.open('hpChart.png')
-        st.altair_chart(linesPerCharacter(hp2))
+        st.altair_chart(linesPerHouse(hp2))
   
   
 with tab4:
@@ -378,4 +378,4 @@ with tab4:
     with col1:
         st.altair_chart(linesPerCharacter(hp3))
     with col2:
-        st.altair_chart(linesPerCharacter(hp3))
+        st.altair_chart(linesPerHouse(hp3))
