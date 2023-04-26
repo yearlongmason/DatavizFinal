@@ -283,6 +283,43 @@ def linesPerCharacter(data):
     return chart
 
 
+def linesPerHouse(data):
+    houseLines = data.groupby('House', as_index=False).count() #Groups data by house
+    houseLines['Number of Lines'] = houseLines['Sentence'] #Saved for the tooltip later
+
+    #Logging data in order to normalize it, otherwise it's very skewed
+    houseLines['Sentence'] = [np.around(np.log10(x),2) for x in houseLines['Sentence']]
+
+    if 'Hufflepuff' not in houseLines['House']: #Keeps Hufflepuff in the chart even if they're not there
+        #Adds the housename + rest of the colunms as 0 (weird numpy workaround due to varying dataframe sizes)
+        houseLines.loc[len(houseLines.index)] = ['Hufflepuff'] + list(np.zeros(len(data.columns)))
+        
+    #Define color parameters
+    houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
+    colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
+    
+    #setting axis labels [weird javascript thing >:(]
+    axisLabels = "datum.label == 1 ? '10 lines' : datum.label == 2 ? '100 lines' : '1000 lines'"
+    labelVals = [1,2,3]
+    #Create chart
+    chart = alt.Chart(houseLines, title = 'Number of Lines per House').mark_bar().encode(
+        alt.X('House', sort=alt.EncodingSortField(field="Number of Lines", op="count", order='ascending'),\
+             axis=alt.Axis(labelAngle=0)),
+        alt.Y('Sentence', title='Number of Lines (log10 scale)',\
+              scale=alt.Scale(domain=[0, houseLines['Sentence'].max()+houseLines['Sentence'].max()*.007]),\
+              axis=alt.Axis(labelExpr=axisLabels, values=labelVals)),
+        color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
+        tooltip=['House', 'Number of Lines']
+    )
+    chart = chart.properties(width=750, height=400) #Set figure size
+    chart = chart.configure_axis(labelFontSize=13, titleFontSize=16) #Set tick label size and axis title sizes
+    chart = chart.configure_title(fontSize=20) #Sets title size
+    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
+    chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
+    
+    return chart
+
+
 
 
 
@@ -311,7 +348,7 @@ with tab1:
     with col1:
         st.altair_chart(linesPerCharacter(hp123))
     with col2:
-        st.altair_chart(linesPerCharacter(hp123))
+        st.altair_chart(linesPerHouse(hp123))
     
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
