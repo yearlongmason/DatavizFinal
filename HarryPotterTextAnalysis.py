@@ -10,7 +10,7 @@ import base64
 
 #Data cleaning
 
-#Harry Potter and The Sorcerer's Stone (hp1) data cleaning
+#Harry Potter and the Sorcerer's Stone (hp1) data cleaning
 hp1 = pd.read_csv('HarryPotter1.csv', sep=';')
 
 #Normalizing text (all lowercase, no special characters)
@@ -77,7 +77,7 @@ hp1['MovieName'] = 'Harry Potter and the Sorcerer\'s Stone'
 hp1['MovieNumber'] = 1
 
 
-#Harry Potter and The Chamber of Secrets (hp2) data cleaning
+#Harry Potter and the Chamber of Secrets (hp2) data cleaning
 hp2 = pd.read_csv('HarryPotter2.csv', sep=';')
 
 #Normalizing text (all lowercase, no special characters)
@@ -146,6 +146,9 @@ hp2['House'] = house
 hp2['MovieName'] = 'Harry Potter and the Chamber of Secrets'
 hp2['MovieNumber'] = 2
 
+
+#Harry Potter and the Prisoner of Azkaban (hp3) data cleaning
+hp3 = pd.read_csv('HarryPotter3.csv', sep=';')
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
