@@ -16,7 +16,6 @@ hp1 = pd.read_csv('HarryPotter1.csv', sep=';')
 #Normalizing text (all lowercase, no special characters)
 alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ',\
          '0','1','2','3','4','5','6','7','8','9', '-'] #Defines all characters I want to keep
-
 hp1['normText']=[x.lower() for x in hp1['Sentence']] #Sets normalized text to the lowercase Sentence
 for i in range(len(hp1)): #Gets rid of all special characters
     hp1.at[i, 'normText'] = ''.join([str(x.lower()) if x in alphabet else '' for x in hp1.iloc[i]['normText']])
@@ -45,10 +44,8 @@ hp1.at[463, 'Character'] = 'Neville'
 backgroundCharacters=['Someone', 'Man', 'Witch', 'Boy', 'Girl', 'Crowd', 'Gryffindors', 'Goblin']
 hp1['Character'] = ['Background Character' if x in backgroundCharacters else x for x in hp1['Character']]
 
-
 #Creating column for number of words per sentence
 hp1['numWords'] = [len(x.split(' ')) for x in hp1['Sentence']]
-
 
 #Defining houses
 Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
@@ -75,6 +72,12 @@ for i in hp1['Character']:
         hp1House.append('Muggle')
 hp1['House'] = hp1House
 
+#Creates movie name and movie number column for when all dataframes are combined
+hp1['MovieName'] = 'Harry Potter and the Sorcerer\'s Stone'
+hp1['MovieNumber'] = 1
+
+
+#Harry Potter and The Chamber of Secrets (hp2) data cleaning
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
