@@ -78,6 +78,40 @@ hp1['MovieNumber'] = 1
 
 
 #Harry Potter and The Chamber of Secrets (hp2) data cleaning
+hp2 = pd.read_csv('HarryPotter2.csv', sep=';')
+
+#Normalizing text (all lowercase, no special characters)
+alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ',\
+         '0','1','2','3','4','5','6','7','8','9', '-'] #Defines all characters I want to keep
+hp2['normText']=[x.lower() for x in hp2['Sentence']] #Sets normalized text to the lowercase Sentence
+for i in range(len(hp2)): #Gets rid of all special characters
+    hp2.at[i, 'normText'] = ''.join([str(x.lower()) if x in alphabet else '' for x in hp2.iloc[i]['normText']])
+
+#Fixing any name irregularities as well as categorizing background characters
+hp2['Character'] = [x.title().replace(' ', '') for x in hp2['Character']] #Remove spaces from Character names
+hp2['Character'] = ['Vernon' if x=='UncleVernon' else x for x in hp2['Character']]
+hp2['Character'] = ['Petunia' if x=='AuntPetunia' else x for x in hp2['Character']]
+hp2['Character'] = ['Petunia & Dudley' if x=='Aunt\xa0Petunia\xa0&Dudley' else x for x in hp2['Character']]
+hp2['Character'] = ['Lucius Malfoy' if x=='LuciusMalfoy' else x for x in hp2['Character']]
+hp2['Character'] = ['Ron and Harry' if x=='HarryAndRon' else x for x in hp2['Character']]
+hp2['Character'] = ['Professor Sprout' if x=='ProfessorSprout' else x for x in hp2['Character']]
+hp2['Character'] = ['Penelope Clearwater' if x=='PenelopeClearwater' else x for x in hp2['Character']]
+hp2['Character'] = ['Sir Nicholas' if x=='SirNicholas' else x for x in hp2['Character']]
+hp2['Character'] = ['Lockhart' if x=='GilderoyLockhart' else x for x in hp2['Character']]
+hp2['Character'] = ['Cornish Pixies' if x=='CornishPixies' else x for x in hp2['Character']]
+hp2['Character'] = ['Oliver Wood' if x=='Wood' else x for x in hp2['Character']]
+hp2['Character'] = ['Madam Pomfrey' if x=='MadamPomfrey' else x for x in hp2['Character']]
+hp2['Character'] = ['Moaning Myrtle' if x=='MoaningMyrtle' else x for x in hp2['Character']]
+hp2['Character'] = ['Justin Finch-Fletchley' if x=='JustinFinch-Fletchley' else x for x in hp2['Character']]
+hp2['Character'] = ['Sorting Hat' if x=='SortingHat' else x for x in hp2['Character']]
+hp2['Character'] = ['Tom Riddle' if x=='TomRiddle' else x for x in hp2['Character']]
+hp2['Character'] = ['McGonagall' if x=='Mcgonagall' else x for x in hp2['Character']]
+hp2['Character'] = ['Harry, Ron, and Hermione' if x=='Harry-Ron-Hermione' else x for x in hp2['Character']]
+#People I would classify as a general "Other" category
+backgroundCharacters = ['Witch', 'Man', 'Photographer', 'Trainmaster', 'Class', 'Voice', 'Boy', 'Picture',\
+                       'Slytherins', 'Diary', 'Student']
+hp2['Character'] = ['Background Character' if x in backgroundCharacters else x for x in hp2['Character']]
+
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
@@ -93,7 +127,7 @@ st.markdown("<h3 style='text-align: center; color: #000000;'>An analysis of the 
 st.markdown("As a kid, I was always a big fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
 st.markdown("fundamental research question will go here")
 st.markdown("Describe the data here")
-st.markdown(hp1.iloc[0]['Character'] + ' ' + hp1.iloc[0]['House'] + ' ' + hp1.iloc[0]['Sentence'] + ' Number of words: ' + str(hp1.iloc[0]['numWords']))
+#st.markdown(hp2.iloc[0]['Character'] + ' ' + hp2.iloc[0]['House'] + ' ' + hp2.iloc[0]['Sentence'] + ' Number of words: ' + str(hp2.iloc[0]['numWords']))
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["First 3 Movies Combined", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
