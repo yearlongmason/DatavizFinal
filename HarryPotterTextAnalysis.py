@@ -11,14 +11,21 @@ import base64
 #Data cleaning
 hp1 = pd.read_csv('HarryPotter1.csv', sep=';')
 
+#Normalizing text (all lowercase, no special characters)
+alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ',\
+         '0','1','2','3','4','5','6','7','8','9', '-'] #Defines all characters I want to keep
+
+hp1['normText']=[x.lower() for x in hp1['Sentence']] #Sets normalized text to the lowercase Sentence
+for i in range(len(hp1)): #Gets rid of all special characters
+    hp1.at[i, 'normText'] = ''.join([str(x.lower()) if x in alphabet else '' for x in hp1.iloc[i]['normText']])
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
 
 #Displaying the HogwartsLogo.png at the top of the page
 with open("HogwartsLogo.png", "rb") as file:
-  contents = file.read()
-  imgurl = base64.b64encode(contents).decode("utf-8")
+    contents = file.read()
+    imgurl = base64.b64encode(contents).decode("utf-8")
 st.markdown(f'<center><img src="data:image/gif;base64,{imgurl}" alt="Hogwarts Logo"></center>', unsafe_allow_html=True)
 
 
@@ -31,65 +38,65 @@ st.markdown("Describe the data here")
 tab1, tab2, tab3, tab4 = st.tabs(["First 3 Movies Combined", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
 with tab1:
-  st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
-  col1, col2 = st.columns(2)
-  with col1:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.image(image, caption='This will be a description of the chart')
-  with col2:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
-    #fig, ax = plt.subplots()
-    #st.pyplot(fig)
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
+    st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
+    col1, col2 = st.columns(2)
+    with col1:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+        st.image(image, caption='This will be a description of the chart')
+    with col2:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
+        #fig, ax = plt.subplots()
+        #st.pyplot(fig)
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+
+        source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
+        chart = alt.Chart(source).mark_bar().encode(x='a', y='b')
+        chart = chart.properties(width=700, height=375) #Set figure size
+        chart = chart.properties(title='HP Data')
+        st.altair_chart(chart)
     
-    source = pd.DataFrame({'a': ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],'b': [28, 55, 43, 91, 81, 53, 19, 87, 52]})
-    chart = alt.Chart(source).mark_bar().encode(x='a', y='b')
-    chart = chart.properties(width=700, height=375) #Set figure size
-    chart = chart.properties(title='HP Data')
-    st.altair_chart(chart)
-    
-  st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
+    st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
   
 with tab2:
-  st.title("Analysis of Harry Potter and the Sorcerer's Stone")
-  col1, col2 = st.columns(2)
-  with col1:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
-  with col2:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
+    st.title("Analysis of Harry Potter and the Sorcerer's Stone")
+    col1, col2 = st.columns(2)
+    with col1:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
+    with col2:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
   
   
 with tab3:
-  st.title("Analysis of Harry Potter and the Chamber of Secrets")
-  col1, col2 = st.columns(2)
-  with col1:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
-  with col2:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
+    st.title("Analysis of Harry Potter and the Chamber of Secrets")
+    col1, col2 = st.columns(2)
+    with col1:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
+    with col2:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
   
   
 with tab4:
-  st.title("Analysis of Harry Potter and the Prizoner of Azkaban")
-  col1, col2 = st.columns(2)
-  with col1:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
-  with col2:
-    image = Image.open('hpChart.png')
-    st.image(image, caption='This will be a description of the chart')
+    st.title("Analysis of Harry Potter and the Prizoner of Azkaban")
+    col1, col2 = st.columns(2)
+    with col1:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
+    with col2:
+        image = Image.open('hpChart.png')
+        st.image(image, caption='This will be a description of the chart')
