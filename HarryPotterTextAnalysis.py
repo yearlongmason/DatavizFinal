@@ -309,8 +309,7 @@ with tab1:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
     col1, col2 = st.columns(2)
     with col1:
-        image = Image.open('hpChart.png')
-        st.image(image, caption='This will be a description of the chart')
+        st.altair_chart(linesPerCharacter(hp123))
         st.markdown("")
         st.markdown("")
         st.markdown("")
@@ -327,8 +326,6 @@ with tab1:
         st.markdown("")
         st.markdown("")
         st.markdown("")
-
-        st.altair_chart(linesPerCharacter(hp123))
     
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
