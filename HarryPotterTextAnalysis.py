@@ -311,7 +311,7 @@ def linesPerHouse(data):
         color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
         tooltip=['House', 'Number of Lines']
     )
-    chart = chart.properties(width=750, height=400) #Set figure size
+    chart = chart.properties(width=700, height=475) #Set figure size
     chart = chart.configure_axis(labelFontSize=13, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
