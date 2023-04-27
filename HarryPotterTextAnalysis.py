@@ -274,7 +274,7 @@ def linesPerCharacter(data):
         color = alt.Color('House', scale=alt.Scale(domain=list(houseColors.keys()), range=list(houseColors.values()))),
         tooltip = ['Character', 'House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
     )
-    chart = chart.properties(width=1000, height=518) #Set figure size w690
+    chart = chart.properties(width=690, height=518) #Set figure size w690
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
@@ -316,7 +316,7 @@ def linesPerHouse(data):
         color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
         tooltip=['House', 'Number of Lines']
     )
-    chart = chart.properties(width=1000, height=475) #Set figure size w685
+    chart = chart.properties(width=685, height=475) #Set figure size w685
     chart = chart.configure_axis(labelFontSize=13, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
@@ -496,29 +496,29 @@ tab1, tab2, tab3, tab4 = st.tabs(["First 3 Movies Combined", "Sorcerer's Stone",
 
 with tab1:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
-    #col1, col2 = st.columns(2)
-    #with col1:
-    #    st.altair_chart(linesPerHouse(hp123))
-    #    st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
-    #    st.markdown('##### Number of Words Spoken Per Line by House')
-    #    st.pyplot(numWordsVP(hp123))
-    #with col2:
-    #    st.altair_chart(linesPerCharacter(hp123))
-    #    st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
-    #    st.altair_chart(numWordsPerLineJP(hp123))
-    #st.altair_chart(numWordsPerLineHM(hp123))
-    #st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
-    #Test new format
-    tcol1, tcol2 = st.columns([3,1])
-    with tcol1:
+    col1, col2 = st.columns(2)
+    with col1:
         st.altair_chart(linesPerHouse(hp123))
-    with tcol2:
         st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
-    tcol1, tcol2 = st.columns([1,3])
-    with tcol1:
-        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
-    with tcol2:
+        st.markdown('##### Number of Words Spoken Per Line by House')
+        st.pyplot(numWordsVP(hp123))
+    with col2:
         st.altair_chart(linesPerCharacter(hp123))
+        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
+        st.altair_chart(numWordsPerLineJP(hp123))
+    st.altair_chart(numWordsPerLineHM(hp123))
+    st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
+    #Test new format
+    #tcol1, tcol2 = st.columns([3,1])
+    #with tcol1:
+    #    st.altair_chart(linesPerHouse(hp123))
+    #with tcol2:
+    #    st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
+    #tcol1, tcol2 = st.columns([1,3])
+    #with tcol1:
+    #    st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
+    #with tcol2:
+    #    st.altair_chart(linesPerCharacter(hp123))
   
   
 with tab2:
