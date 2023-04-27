@@ -224,7 +224,7 @@ hp123 = pd.concat([hp1, hp2, hp3])
 
 
 #Dataviz functions
-def linesPerCharacter(data):
+def linesPerCharacter(data, width, height):
     #Defining houses
     Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
                'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
@@ -274,7 +274,7 @@ def linesPerCharacter(data):
         color = alt.Color('House', scale=alt.Scale(domain=list(houseColors.keys()), range=list(houseColors.values()))),
         tooltip = ['Character', 'House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
     )
-    chart = chart.properties(width=690, height=518) #Set figure size w690
+    chart = chart.properties(width=width, height=height) #Set figure size w690 h518
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
@@ -503,7 +503,7 @@ with tab1:
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
     with col2:
-        st.altair_chart(linesPerCharacter(hp123))
+        st.altair_chart(linesPerCharacter(hp123, 690, 518))
         st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
         st.altair_chart(numWordsPerLineJP(hp123))
     st.altair_chart(numWordsPerLineHM(hp123))
@@ -532,7 +532,7 @@ with tab2:
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp1))
     with col2:
-        st.altair_chart(linesPerCharacter(hp1))
+        st.altair_chart(linesPerCharacter(hp1, 690, 518))
         st.altair_chart(numWordsPerLineJP(hp1))
     st.altair_chart(numWordsPerLineHM(hp1))
   
@@ -548,7 +548,7 @@ with tab3:
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp2))
     with col2:
-        st.altair_chart(linesPerCharacter(hp2))
+        st.altair_chart(linesPerCharacter(hp2, 690, 518))
         st.altair_chart(numWordsPerLineJP(hp2))
     st.altair_chart(numWordsPerLineHM(hp2))
   
@@ -564,6 +564,6 @@ with tab4:
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp3))
     with col2:
-        st.altair_chart(linesPerCharacter(hp3))
+        st.altair_chart(linesPerCharacter(hp3, 690, 518))
         st.altair_chart(numWordsPerLineJP(hp3))
     st.altair_chart(numWordsPerLineHM(hp3))
