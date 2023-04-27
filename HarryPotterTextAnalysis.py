@@ -339,7 +339,9 @@ def numWordsVP(data):
     ax.set_ylabel('Number of Words per Line', fontsize=16)
     ax.set_xlabel('House', fontsize=16)
     ax.set_ylim([-4, 40])
-    [t.set_color('xkcd:grey') for t in ax.xaxis.get_ticklabels()]
+    x=[t.set_color('xkcd:grey') for t in ax.xaxis.get_ticklabels()]
+    x=[t.set_color('xkcd:grey') for t in ax.yaxis.get_ticklabels()]
+    del x
 
     ax.tick_params(axis='y', width=1, length=5, labelsize=13, color='xkcd:grey')
     ax.tick_params(axis='x', width=1, length=5, labelsize=13, color='xkcd:grey')
