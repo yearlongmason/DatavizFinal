@@ -355,7 +355,7 @@ def numWordsVP(data, width, height):
     return fig
 
 
-def numWordsPerLineJP(data):
+def numWordsPerLineJP(data, width, height):
     houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
     colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
     houseInt = []
@@ -410,7 +410,7 @@ def numWordsPerLineJP(data):
         tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
-    chart = chart.properties(width=750, height=600) #Set figure size
+    chart = chart.properties(width=width, height=height) #Set figure size w750 h600
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
@@ -505,7 +505,7 @@ with tab1:
     with col2:
         st.altair_chart(linesPerCharacter(hp123, 690, 518))
         st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
-        st.altair_chart(numWordsPerLineJP(hp123))
+        st.altair_chart(numWordsPerLineJP(hp123, 750, 600))
     st.altair_chart(numWordsPerLineHM(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
     #Test new format
@@ -533,7 +533,7 @@ with tab2:
         st.pyplot(numWordsVP(hp1, 13.3, 10))
     with col2:
         st.altair_chart(linesPerCharacter(hp1, 690, 518))
-        st.altair_chart(numWordsPerLineJP(hp1))
+        st.altair_chart(numWordsPerLineJP(hp1, 750, 600))
     st.altair_chart(numWordsPerLineHM(hp1))
   
   
@@ -549,7 +549,7 @@ with tab3:
         st.pyplot(numWordsVP(hp2, 13.3, 10))
     with col2:
         st.altair_chart(linesPerCharacter(hp2, 690, 518))
-        st.altair_chart(numWordsPerLineJP(hp2))
+        st.altair_chart(numWordsPerLineJP(hp2, 750, 600))
     st.altair_chart(numWordsPerLineHM(hp2))
   
   
@@ -565,5 +565,5 @@ with tab4:
         st.pyplot(numWordsVP(hp3, 13.3, 10))
     with col2:
         st.altair_chart(linesPerCharacter(hp3, 690, 518))
-        st.altair_chart(numWordsPerLineJP(hp3))
+        st.altair_chart(numWordsPerLineJP(hp3, 750, 600))
     st.altair_chart(numWordsPerLineHM(hp3))
