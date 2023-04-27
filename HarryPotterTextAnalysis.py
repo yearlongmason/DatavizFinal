@@ -524,6 +524,7 @@ with tab2:
     with col2:
         st.altair_chart(linesPerCharacter(hp1))
         st.altair_chart(numWordsPerLineJP(hp1))
+    st.altair_chart(numWordsPerLineHM(hp1))
   
   
 with tab3:
@@ -539,6 +540,7 @@ with tab3:
     with col2:
         st.altair_chart(linesPerCharacter(hp2))
         st.altair_chart(numWordsPerLineJP(hp2))
+    st.altair_chart(numWordsPerLineHM(hp2))
   
   
 with tab4:
@@ -554,3 +556,4 @@ with tab4:
     with col2:
         st.altair_chart(linesPerCharacter(hp3))
         st.altair_chart(numWordsPerLineJP(hp3))
+    st.altair_chart(numWordsPerLineHM(hp3))
