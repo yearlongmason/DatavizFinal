@@ -381,11 +381,13 @@ with tab1:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerCharacter(hp123))
+        st.altair_chart(linesPerHouse(hp123))
+        #st.altair_chart(linesPerCharacter(hp123))
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
     with col2:
-        st.altair_chart(linesPerHouse(hp123))
+        #st.altair_chart(linesPerHouse(hp123))
+        st.altair_chart(linesPerCharacter(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
   
