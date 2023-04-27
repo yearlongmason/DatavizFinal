@@ -326,7 +326,7 @@ def linesPerHouse(data):
 
 
 def numWordsVP(data):
-    fig, ax = plt.subplots(figsize=(13.3,7.5))
+    fig, ax = plt.subplots(figsize=(13.3,8.5))#7.5
     fig.set_facecolor('White')
     
     houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Muggle']
