@@ -274,7 +274,7 @@ def linesPerCharacter(data):
         color = alt.Color('House', scale=alt.Scale(domain=list(houseColors.keys()), range=list(houseColors.values()))),
         tooltip = ['Character', 'House', alt.Tooltip('Sentence', title='Number of Lines')] #Adds tooltip
     )
-    chart = chart.properties(width=690, height=525) #Set figure size
+    chart = chart.properties(width=690, height=515) #Set figure size
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
