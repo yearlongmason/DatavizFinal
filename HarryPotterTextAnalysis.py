@@ -509,6 +509,11 @@ with tab1:
         st.altair_chart(numWordsPerLineJP(hp123))
     st.altair_chart(numWordsPerLineHM(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
+    tcol1, tcol2 = st.columns([3,1])
+    with tcol1:
+        st.altair_chart(numWordsPerLineJP(hp123))
+    with tcol2:
+        st.markdown('Write some fun cool stuff here about the chart!')
   
   
 with tab2:
