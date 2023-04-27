@@ -507,8 +507,9 @@ with tab1:
         st.altair_chart(linesPerCharacter(hp123, 690, 518))
         st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
         st.altair_chart(numWordsPerLineJP(hp123, 750, 600))
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own!')
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
     st.altair_chart(numWordsPerLineHM(hp123, 1350, 400))
+    st.markdown('This heatmap is the last visualization about the number of words per line. From the color scale on the right it can be seen that the sentences with more words are darker, and the lighter ones have less words per line. This can generally be interpreted as the darker spots tend to be more dense with content leading to more story development, and more content coming from that character which is a representation on the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to reload the page a couple times to get a feel for different samples!')
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
     #Test new format
     #tcol1, tcol2 = st.columns([3,1])
