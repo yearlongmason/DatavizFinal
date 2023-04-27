@@ -514,6 +514,11 @@ with tab1:
         st.altair_chart(numWordsPerLineJP(hp123))
     with tcol2:
         st.markdown('Write some fun cool stuff here about the chart!')
+    tcol1, tcol2 = st.columns([1,3])
+    with tcol1:
+        st.markdown('Write some fun cool stuff here about the chart!')
+    with tcol2:
+        st.altair_chart(numWordsPerLineJP(hp123))
   
   
 with tab2:
