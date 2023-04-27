@@ -382,11 +382,9 @@ with tab1:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerHouse(hp123))
-        #st.altair_chart(linesPerCharacter(hp123))
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
     with col2:
-        #st.altair_chart(linesPerHouse(hp123))
         st.altair_chart(linesPerCharacter(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
@@ -395,25 +393,25 @@ with tab2:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerCharacter(hp1))
-    with col2:
         st.altair_chart(linesPerHouse(hp1))
+    with col2:
+        st.altair_chart(linesPerCharacter(hp1))
   
   
 with tab3:
     st.title("Analysis of Harry Potter and the Chamber of Secrets")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerCharacter(hp2))
+        st.altair_chart(linesPerHouse(hp2))
     with col2:
         image = Image.open('hpChart.png')
-        st.altair_chart(linesPerHouse(hp2))
+        st.altair_chart(linesPerCharacter(hp2))
   
   
 with tab4:
     st.title("Analysis of Harry Potter and the Prizoner of Azkaban")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerCharacter(hp3))
-    with col2:
         st.altair_chart(linesPerHouse(hp3))
+    with col2:
+        st.altair_chart(linesPerCharacter(hp3))
