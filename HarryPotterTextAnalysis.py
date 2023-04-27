@@ -522,7 +522,7 @@ with tab1:
     #    st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
     #with tcol2:
     #    st.altair_chart(linesPerCharacter(hp123))
-    st.markdown("<h3 style='text-align: center; color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
     st.markdown('these are conclusions, they are very conclusive!')
   
   
