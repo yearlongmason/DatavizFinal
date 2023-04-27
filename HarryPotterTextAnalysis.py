@@ -504,6 +504,7 @@ with tab1:
         st.pyplot(numWordsVP(hp123))
     with col2:
         st.altair_chart(linesPerCharacter(hp123))
+        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
         st.altair_chart(numWordsPerLineJP(hp123))
     st.altair_chart(numWordsPerLineHM(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
