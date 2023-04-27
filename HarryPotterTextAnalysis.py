@@ -462,7 +462,7 @@ def numWordsPerLineHM(data):
     chart = alt.Chart(data, title='Number of Words Per Line').mark_rect().encode(
         alt.X('houseIndexes:N', axis=alt.Axis(values=[]), title = ''),
         alt.Y('House:N', sort=['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']),
-        alt.Color('numWords', title='Number of Words'),
+        alt.Color('numWords', title='Number of Words', scale=alt.Scale(scheme='greenblue')),
         tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
