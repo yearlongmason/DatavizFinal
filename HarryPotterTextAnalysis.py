@@ -410,7 +410,7 @@ def numWordsPerLineJP(data):
         tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
-    chart = chart.properties(width=1000, height=600) #Set figure size w750
+    chart = chart.properties(width=750, height=600) #Set figure size
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
@@ -509,16 +509,17 @@ with tab1:
         st.altair_chart(numWordsPerLineJP(hp123))
     st.altair_chart(numWordsPerLineHM(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
-    tcol1, tcol2 = st.columns([3,1])
-    with tcol1:
-        st.altair_chart(numWordsPerLineJP(hp123))
-    with tcol2:
-        st.markdown('Write some fun cool stuff here about the chart!')
-    tcol1, tcol2 = st.columns([1,3])
-    with tcol1:
-        st.markdown('Write some fun cool stuff here about the chart!')
-    with tcol2:
-        st.altair_chart(numWordsPerLineJP(hp123))
+    #Test new format
+    #tcol1, tcol2 = st.columns([3,1])
+    #with tcol1:
+    #    st.altair_chart(numWordsPerLineJP(hp123))
+    #with tcol2:
+    #    st.markdown('Write some fun cool stuff here about the chart!')
+    #tcol1, tcol2 = st.columns([1,3])
+    #with tcol1:
+    #    st.markdown('Write some fun cool stuff here about the chart!')
+    #with tcol2:
+    #    st.altair_chart(numWordsPerLineJP(hp123))
   
   
 with tab2:
