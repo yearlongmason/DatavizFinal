@@ -336,11 +336,10 @@ def numWordsVP(data):
         colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
     sns.violinplot(data=data, x='House', y='numWords', linewidth=1.5, palette=colors, order = houses)
     #ax.set_title('Number of Words Spoken Per Line by House', fontsize=18, fontweight='bold', loc='left', color='xkcd:grey')
-    ax.xaxis.label.set_color('xkcd:grey')
-    ax.yaxis.label.set_color('xkcd:grey')
     ax.set_ylabel('Number of Words per Line', fontsize=16)
     ax.set_xlabel('House', fontsize=16)
     ax.set_ylim([-4, 40])
+    [t.set_color('xkcd:grey') for t in ax.xaxis.get_ticklabels()]
 
     ax.tick_params(axis='y', width=1, length=5, labelsize=13, color='xkcd:grey')
     ax.tick_params(axis='x', width=1, length=5, labelsize=13, color='xkcd:grey')
