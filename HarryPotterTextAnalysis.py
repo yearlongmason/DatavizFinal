@@ -340,8 +340,8 @@ def numWordsVP(data):
     ax.set_xlabel('House', fontsize=16)
     ax.set_ylim([-4, 40])
 
-    ax.tick_params(axis='y', width=1, length=5, labelsize=13)
-    ax.tick_params(axis='x', width=1, length=5, labelsize=13)
+    ax.tick_params(axis='y', width=1, length=5, labelsize=13, color='xkcd:grey')
+    ax.tick_params(axis='x', width=1, length=5, labelsize=13, color='xkcd:grey')
     
     c='xkcd:white'
     ax.spines['bottom'].set_color('xkcd:gray')
