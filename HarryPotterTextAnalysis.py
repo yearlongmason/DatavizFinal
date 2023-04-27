@@ -420,6 +420,61 @@ def numWordsPerLineJP(data):
     return chart
 
 
+def numWordsPerLineHM(data):
+    #Gets length of a sentence in characters as a potential sorting feature for a less consistent looking sort
+    data['sentenceLen'] = [len(x) for x in data['Sentence']]
+    #Randomizes the lines displayed by picking a random 34 lines from each house
+    sortby = 'sentenceLen'
+    gryf = data[data['House']=='Gryffindor'].sample(25).sort_values(by=sortby, ascending = False)
+    slyth = data[data['House']=='Slytherin'].sample(25).sort_values(by=sortby, ascending = False)
+    raven = data[data['House']=='Ravenclaw'].sample(25).sort_values(by=sortby, ascending = False)
+    if 'Hufflepuff' in list(data['House']): 
+        huffle = data[data['House']=='Hufflepuff'].sample(25).sort_values(by=sortby, ascending = False)
+    muggle = data[data['House']=='Muggle'].sample(25).sort_values(by=sortby, ascending = False)
+    
+    #Concat's all dataframes
+    if 'Hufflepuff' in list(data['House']):
+        data = pd.concat([gryf, slyth, raven, huffle, muggle]) #Makes a dataframe from random samples
+    else:
+        data = pd.concat([gryf, slyth, raven, muggle])
+    
+    #Creates house specific indexes for each house so that it can display nicely on the heatmap
+    gryf, slyth, raven, huffle, muggle = 0,0,0,0,0
+    houseIndexes = []
+    for i in data['House']:
+        if i == 'Gryffindor':
+            gryf+=1
+            houseIndexes.append(gryf)
+        elif i == 'Slytherin':
+            slyth+=1
+            houseIndexes.append(slyth)
+        elif i == 'Ravenclaw':
+            raven+=1
+            houseIndexes.append(raven)
+        elif i == 'Hufflepuff':
+            huffle+=1
+            houseIndexes.append(huffle)
+        else:
+            muggle+=1
+            houseIndexes.append(muggle)
+    data['houseIndexes'] = houseIndexes
+    
+    chart = alt.Chart(data, title='Number of Words Per Line').mark_rect().encode(
+        alt.X('houseIndexes:N', axis=alt.Axis(values=[]), title = ''),
+        alt.Y('House:N', sort=['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']),
+        alt.Color('numWords', title='Number of Words'),
+        tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
+                   alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
+    )
+    chart = chart.properties(width=1000, height=250)
+    chart = chart.configure_axis(labelFontSize=12, titleFontSize=16)
+    chart = chart.configure_title(fontSize=20)
+    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13)
+    chart = chart.configure_view(strokeWidth=2)
+         
+    return chart
+
+
 
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
@@ -452,6 +507,7 @@ with tab1:
     with col2:
         st.altair_chart(linesPerCharacter(hp123))
         st.altair_chart(numWordsPerLineJP(hp123))
+    st.altair_chart(numWordsPerLineHM(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
   
