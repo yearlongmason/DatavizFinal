@@ -445,6 +445,8 @@ with tab1:
     with col1:
         st.altair_chart(linesPerHouse(hp123))
         st.markdown('')
+        st.markdown('')
+        st.markdown('')
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
     with col2:
