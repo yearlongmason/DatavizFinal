@@ -466,7 +466,7 @@ def numWordsPerLineHM(data):
         tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
-    chart = chart.properties(width=1000, height=250)
+    chart = chart.properties(width=1350, height=400)
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16)
     chart = chart.configure_title(fontSize=20)
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13)
