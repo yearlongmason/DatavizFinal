@@ -335,7 +335,7 @@ def numWordsVP(data):
         houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
         colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
     sns.violinplot(data=data, x='House', y='numWords', linewidth=2.5, palette=colors, order = houses)
-    ax.set_title('Number of Words Spoken Per Line by House', fontsize=18, fontweight='bold', loc='left', color='xkcd:grey')
+    #ax.set_title('Number of Words Spoken Per Line by House', fontsize=18, fontweight='bold', loc='left', color='xkcd:grey')
     ax.set_ylabel('Number of Words per Line', fontsize=16, fontweight='bold')
     ax.set_xlabel('House', fontsize=16, fontweight='bold')
     ax.set_ylim([-4, 40])
@@ -379,6 +379,7 @@ with tab1:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerCharacter(hp123))
+        st.markdown('Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
     with col2:
         st.altair_chart(linesPerHouse(hp123))
