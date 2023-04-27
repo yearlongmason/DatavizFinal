@@ -309,10 +309,10 @@ def linesPerHouse(data):
     #Create chart
     chart = alt.Chart(houseLines, title = 'Number of Lines per House').mark_bar().encode(
         alt.X('House', sort=houses,\
-             axis=alt.Axis(labelAngle=0)),
+             axis=alt.Axis(labelAngle=0, titleColor = 'black')),
         alt.Y('Sentence', title='Number of Lines (log10 scale)',\
               scale=alt.Scale(domain=[0, houseLines['Sentence'].max()+houseLines['Sentence'].max()*.007]),\
-              axis=alt.Axis(labelExpr=axisLabels, values=labelVals)),
+              axis=alt.Axis(labelExpr=axisLabels, values=labelVals, titleColor = 'black')),
         color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
         tooltip=['House', 'Number of Lines']
     )
