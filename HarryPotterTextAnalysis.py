@@ -410,7 +410,7 @@ def numWordsPerLineJP(data):
         tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
-    chart = chart.properties(width=750, height=600) #Set figure size
+    chart = chart.properties(width=750, height=700) #Set figure size h600
     chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
