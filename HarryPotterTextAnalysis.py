@@ -283,7 +283,7 @@ def linesPerCharacter(data, width, height):
     return chart
 
 
-def linesPerHouse(data):
+def linesPerHouse(data, width, height):
     houseLines = data.groupby('House', as_index=False).count() #Groups data by house
     houseLines['Number of Lines'] = houseLines['Sentence'] #Saved for the tooltip later
 
@@ -316,7 +316,7 @@ def linesPerHouse(data):
         color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
         tooltip=['House', 'Number of Lines']
     )
-    chart = chart.properties(width=685, height=475) #Set figure size w685
+    chart = chart.properties(width=width, height=height) #Set figure size w685 h475
     chart = chart.configure_axis(labelFontSize=13, titleFontSize=16) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
@@ -498,7 +498,7 @@ with tab1:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerHouse(hp123))
+        st.altair_chart(linesPerHouse(hp123, 685, 475))
         st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
@@ -525,7 +525,7 @@ with tab2:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerHouse(hp1))
+        st.altair_chart(linesPerHouse(hp1, 685, 475))
         st.markdown('')
         st.markdown('')
         st.markdown('')
@@ -541,7 +541,7 @@ with tab3:
     st.title("Analysis of Harry Potter and the Chamber of Secrets")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerHouse(hp2))
+        st.altair_chart(linesPerHouse(hp2, 685, 475))
         st.markdown('')
         st.markdown('')
         st.markdown('')
@@ -557,7 +557,7 @@ with tab4:
     st.title("Analysis of Harry Potter and the Prizoner of Azkaban")
     col1, col2 = st.columns(2)
     with col1:
-        st.altair_chart(linesPerHouse(hp3))
+        st.altair_chart(linesPerHouse(hp3, 685, 475))
         st.markdown('')
         st.markdown('')
         st.markdown('')
