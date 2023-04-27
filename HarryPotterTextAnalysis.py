@@ -404,7 +404,7 @@ def numWordsPerLineJP(data):
     axis_labels = "datum.label == 1 ? 'Muggle' : datum.label == 2 ? 'Hufflepuff' : datum.label == 3 ? 'Ravenclaw' : datum.label == 4 ? 'Slytherin' : 'Gryffindor'"
     chart = alt.Chart(data, title='Number of Words Per Line').mark_circle(size=50).encode(
         alt.Y("numWords:Q", title = 'Number of Words', axis = alt.Axis(titleColor='black')),
-        alt.X("houseInt:Q", axis=alt.Axis(labelExpr=axisLabels, values=axisVals), title='House', titleColor='black',
+        alt.X("houseInt:Q", axis=alt.Axis(labelExpr=axisLabels, values=axisVals), title='House',
               scale=alt.Scale(domain=[data['houseInt'].min()-.1, data['houseInt'].max()+.1])),
         color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
         tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
