@@ -8,6 +8,7 @@ import streamlit as st
 from PIL import Image
 import base64
 
+
 #Data cleaning
 
 #Harry Potter and the Sorcerer's Stone (hp1) data cleaning
@@ -222,7 +223,6 @@ hp123 = pd.concat([hp1, hp2, hp3])
 
 
 
-
 #Dataviz functions
 def linesPerCharacter(data, width, height):
     #Defining houses
@@ -261,7 +261,6 @@ def linesPerCharacter(data, width, height):
 
     #Adding columns that couldn't be aggregated in groupby
     spokenLines['House'] = house
-    
     
     #Defining these for setting color
     houseColors = {'Gryffindor':'#be0119', 'Slytherin':'#009500', 'Ravenclaw':'#069af3', 'Muggle':'#5f6b73'}
@@ -476,6 +475,7 @@ def numWordsPerLineHM(data, width, height):
 
 
 
+
 #Streamlit components
 st.set_page_config(page_title="Harry Potter Text Analysis", layout="wide") #Setting page title
 
@@ -510,6 +510,9 @@ with tab1:
         st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
     st.altair_chart(numWordsPerLineHM(hp123, 1350, 400))
     st.markdown('This heatmap is the last visualization about the number of words per line. From the color scale on the right it can be seen that the sentences with more words are darker, and the lighter ones have less words per line. This can generally be interpreted as the darker spots tend to be more dense with content leading to more story development, and more content coming from that character which is a representation on the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to reload the page a couple times to get a feel for different samples!')
+    st.markdown("<h3 color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
+    st.markdown('The first three movies as a whole are relatively diverse, but definitely could have been more so. Of course the story is about Gryffindor, so the representation is bound to be dominated by them, however there were definitely moments across the movies where some characters belonging to other houses got their time to shine, whether that be a character like Draco who got to shine a bit more often than a lot of the other characters, or if it were a character with some more in depth lines than the majority of the Gryffindor lines. One of the most prominent things that came from this research is how little Hufflepuff shows up in the first three movies, with only 34 lines across all 3 movies naking up less than 1% of all lines across all 3 movies! That being said, Slytherin and Ravenclaw did a pretty good job in not letting Gryffindor completely rule the story!')
+
     #Test new format
     #tcol1, tcol2 = st.columns([3,1])
     #with tcol1:
@@ -521,9 +524,7 @@ with tab1:
     #    st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
     #with tcol2:
     #    st.altair_chart(linesPerCharacter(hp123))
-    st.markdown("<h3 color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
-    st.markdown('The first three movies as a whole are relatively diverse, but definitely could have been more so. Of course the story is about Gryffindor, so the representation is bound to be dominated by them, however there were definitely moments across the movies where some characters belonging to other houses got their time to shine, whether that be a character like Draco who got to shine a bit more often than a lot of the other characters, or if it were a character with some more in depth lines than the majority of the Gryffindor lines. One of the most prominent things that came from this research is how little Hufflepuff shows up in the first three movies, with only 34 lines across all 3 movies naking up less than 1% of all lines across all 3 movies! That being said, Slytherin and Ravenclaw did a pretty good job in not letting Gryffindor completely rule the story!')
-  
+         
   
 with tab2:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone")
