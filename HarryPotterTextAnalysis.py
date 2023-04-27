@@ -460,10 +460,14 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerHouse(hp1))
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp1))
     with col2:
         st.altair_chart(linesPerCharacter(hp1))
+        st.altair_chart(numWordsPerLineJP(hp1))
   
   
 with tab3:
@@ -471,11 +475,14 @@ with tab3:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerHouse(hp2))
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp2))
     with col2:
-        image = Image.open('hpChart.png')
         st.altair_chart(linesPerCharacter(hp2))
+        st.altair_chart(numWordsPerLineJP(hp2))
   
   
 with tab4:
@@ -483,7 +490,11 @@ with tab4:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerHouse(hp3))
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp3))
     with col2:
         st.altair_chart(linesPerCharacter(hp3))
+        st.altair_chart(numWordsPerLineJP(hp3))
