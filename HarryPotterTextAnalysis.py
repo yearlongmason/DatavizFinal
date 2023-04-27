@@ -355,7 +355,68 @@ def numWordsVP(data):
     return fig
 
 
+def numWordsPerLineJP(data):
+    houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
+    colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
+    houseInt = []
+    for i in data['House']:
+        if i == 'Gryffindor':
+            if np.random.randint(-1,1):
+                houseInt.append(1+np.random.normal()%.35)
+            else:
+                houseInt.append(1-np.random.normal()%.35)
+        elif i == 'Slytherin':
+            if np.random.randint(-1,1):
+                houseInt.append(2+np.random.normal()%.35)
+            else:
+                houseInt.append(2-np.random.normal()%.35)
+        elif i == 'Ravenclaw':
+            if np.random.randint(-1,1):
+                houseInt.append(3+np.random.normal()%.35)
+            else:
+                houseInt.append(3-np.random.normal()%.35)
+        elif i == 'Hufflepuff':
+            if np.random.randint(-1,1):
+                houseInt.append(4+np.random.normal()%.35)
+            else:
+                houseInt.append(4-np.random.normal()%.35)
+        else: #If muggle
+            if 'Hufflepuff' in list(data['House']):
+                if np.random.randint(-1,1):
+                    houseInt.append(5+np.random.normal()%.35)
+                else:
+                    houseInt.append(5-np.random.normal()%.35)
+            else:
+                if np.random.randint(-1,1):
+                    houseInt.append(4+np.random.normal()%.35)
+                else:
+                    houseInt.append(4-np.random.normal()%.35)
+    data['houseInt'] = houseInt
+    
+    if 'Hufflepuff' in list(data['House']):
+        axisLabels = "datum.label == 5 ? 'Muggle' : datum.label == 4 ? 'Hufflepuff' : datum.label == 3 ? 'Ravenclaw' : datum.label == 2 ? 'Slytherin' : 'Gryffindor'"
+        axisVals = [1,2,3,4,5]
+    else:
+        axisLabels = "datum.label == 4 ? 'Muggle' : datum.label == 3 ? 'Ravenclaw' : datum.label == 2 ? 'Slytherin' : 'Gryffindor'"
+        axisVals = [1,2,3,4]
 
+    #setting axis labels [weird javascript thing >:(]
+    axis_labels = "datum.label == 1 ? 'Muggle' : datum.label == 2 ? 'Hufflepuff' : datum.label == 3 ? 'Ravenclaw' : datum.label == 4 ? 'Slytherin' : 'Gryffindor'"
+    chart = alt.Chart(data, title='Number of Words Per Line').mark_circle(size=50).encode(
+        alt.Y("numWords:Q", title = 'Number of Words'),
+        alt.X("houseInt:Q", axis=alt.Axis(labelExpr=axisLabels, values=axisVals), title='House',
+              scale=alt.Scale(domain=[data['houseInt'].min()-.1, data['houseInt'].max()+.1])),
+        color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
+        tooltip = ['Character', 'House', alt.Tooltip('MovieName', title='Movie'),\
+                   alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
+    )
+    chart = chart.properties(width=750, height=400) #Set figure size
+    chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
+    chart = chart.configure_title(fontSize=20) #Sets title size
+    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
+    chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
+    chart = chart.interactive()
+    return chart
 
 
 
@@ -386,6 +447,7 @@ with tab1:
         st.pyplot(numWordsVP(hp123))
     with col2:
         st.altair_chart(linesPerCharacter(hp123))
+        st.altair_chart(numWordsPerLineJP(hp123))
     st.markdown('This is just some text at the end of each page saying something about the findings of this tab in particular')
   
   
