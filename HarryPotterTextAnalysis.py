@@ -424,7 +424,7 @@ def numWordsPerLineHM(data):
     #Gets length of a sentence in characters as a potential sorting feature for a less consistent looking sort
     data['sentenceLen'] = [len(x) for x in data['Sentence']]
     #Randomizes the lines displayed by picking a random 34 lines from each house
-    sortby = 'sentenceLen'
+    sortby = 'numWords'
     gryf = data[data['House']=='Gryffindor'].sample(25).sort_values(by=sortby, ascending = False)
     slyth = data[data['House']=='Slytherin'].sample(25).sort_values(by=sortby, ascending = False)
     raven = data[data['House']=='Ravenclaw'].sample(25).sort_values(by=sortby, ascending = False)
