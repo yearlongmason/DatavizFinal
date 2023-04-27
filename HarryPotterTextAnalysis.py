@@ -499,7 +499,7 @@ with tab1:
     col1, col2 = st.columns(2)
     with col1:
         st.altair_chart(linesPerHouse(hp123))
-        st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it's successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
+        st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123))
     with col2:
