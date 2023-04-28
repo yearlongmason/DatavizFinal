@@ -316,7 +316,7 @@ def linesPerHouse(data, width, height):
         tooltip=['House', 'Number of Lines']
     )
     chart = chart.properties(width=width, height=height) #Set figure size w685 h475
-    chart = chart.configure_axis(labelFontSize=13, titleFontSize=16) #Set tick label size and axis title sizes
+    chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
     chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
@@ -410,7 +410,7 @@ def numWordsPerLineJP(data, width, height):
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
     chart = chart.properties(width=width, height=height) #Set figure size w750 h600
-    chart = chart.configure_axis(labelFontSize=12, titleFontSize=16) #Set tick label size and axis title sizes
+    chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
     chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
@@ -466,7 +466,7 @@ def numWordsPerLineHM(data, width, height):
                    alt.Tooltip('Sentence', title='Line'), alt.Tooltip('numWords', title='Number of words')]
     )
     chart = chart.properties(width=width, height=height) #1350, 400
-    chart = chart.configure_axis(labelFontSize=12, titleFontSize=16)
+    chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20)
     chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13)
     chart = chart.configure_view(strokeWidth=2)
