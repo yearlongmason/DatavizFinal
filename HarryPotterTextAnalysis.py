@@ -492,7 +492,7 @@ st.markdown("fundamental research question will go here")
 st.markdown("Describe the data here")
 
 
-tab1, tab2, tab3, tab4 = st.tabs(["First 3 Movies Combined", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
+tab4, tab2, tab3, tab1 = st.tabs(["First 3 Movies Combined", "Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban"])
 
 with tab1:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone, Chamber of Secrets, and Prizoner of Azkaban")
