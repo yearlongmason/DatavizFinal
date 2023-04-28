@@ -580,15 +580,40 @@ with tab3:
   
 with tab4:
     st.title("Analysis of Harry Potter and the Prizoner of Azkaban")
-    col1, col2 = st.columns(2)
+    #col1, col2 = st.columns(2)
+    #with col1:
+    #    st.altair_chart(linesPerHouse(hp3, 685, 475))
+    #    st.markdown('')
+    #    st.markdown('')
+    #    st.markdown('')
+    #    st.markdown('##### Number of Words Spoken Per Line by House')
+    #    st.pyplot(numWordsVP(hp3, 13.3, 10))
+    #with col2:
+    #    st.altair_chart(linesPerCharacter(hp3, 690, 518))
+    #    st.altair_chart(numWordsPerLineJP(hp3, 750, 600))
+    #st.altair_chart(numWordsPerLineHM(hp3, 1350, 400))
+    col1, col2 = st.columns([4,1])
     with col1:
-        st.altair_chart(linesPerHouse(hp3, 685, 475))
-        st.markdown('')
-        st.markdown('')
-        st.markdown('')
-        st.markdown('##### Number of Words Spoken Per Line by House')
-        st.pyplot(numWordsVP(hp3, 13.3, 10))
+        st.altair_chart(linesPerHouse(hp3, 1100, 630))
     with col2:
-        st.altair_chart(linesPerCharacter(hp3, 690, 518))
-        st.altair_chart(numWordsPerLineJP(hp3, 750, 600))
+        st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is of course to be expected as the movies are first and foremost about them.')
+    col1, col2 = st.columns([1,4])
+    with col1:
+        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor.')
+    with col2:
+        st.altair_chart(linesPerCharacter(hp3, 1100, 630))
+    col1, col2 = st.columns([4,1])
+    with col1:
+        st.markdown('##### Number of Words Spoken Per Line by House')
+        st.pyplot(numWordsVP(hp3, 10, 5), use_container_width=True)
+    with col2:
+        st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have?')
+    col1, col2 = st.columns([1,4])
+    with col1:
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
+    with col2:
+        st.altair_chart(numWordsPerLineJP(hp3, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp3, 1350, 400))
+    st.markdown('This heatmap is the last visualization about the number of words per line. From the color scale on the right it can be seen that the sentences with more words are darker, and the lighter ones have less words per line. This can generally be interpreted as the darker spots tend to be more dense with content leading to more story development, and more content coming from that character which is a representation on the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to reload the page a couple times to get a feel for different samples!')
+    st.markdown("<h3 color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
+    st.markdown('Text about the conclusion')
