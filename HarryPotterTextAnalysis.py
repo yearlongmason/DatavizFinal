@@ -335,15 +335,15 @@ def numWordsVP(data, width, height):
         colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
     sns.violinplot(data=data, x='House', y='numWords', linewidth=1.5, palette=colors, order = houses)
     #ax.set_title('Number of Words Spoken Per Line by House', fontsize=18, fontweight='bold', loc='left', color='xkcd:grey')
-    ax.set_ylabel('Number of Words per Line', fontsize=16)
-    ax.set_xlabel('House', fontsize=16)
+    ax.set_ylabel('Number of Words per Line', fontsize=12)
+    ax.set_xlabel('House', fontsize=12)
     ax.set_ylim([-4, 40])
     x=[t.set_color('xkcd:grey') for t in ax.xaxis.get_ticklabels()]
     x=[t.set_color('xkcd:grey') for t in ax.yaxis.get_ticklabels()]
     del x
 
-    ax.tick_params(axis='y', width=1, length=5, labelsize=13, color='xkcd:grey')
-    ax.tick_params(axis='x', width=1, length=5, labelsize=13, color='xkcd:grey')
+    ax.tick_params(axis='y', width=1, length=5, labelsize=10, color='xkcd:grey')
+    ax.tick_params(axis='x', width=1, length=5, labelsize=10, color='xkcd:grey')
     
     c='xkcd:white'
     ax.spines['bottom'].set_color('xkcd:gray')
@@ -532,7 +532,7 @@ with tab1:
     col1, col2 = st.columns([3,1])
     with col1:
         st.markdown('##### Number of Words Spoken Per Line by House')
-        st.pyplot(numWordsVP(hp123, 10, 5), use_container_width=False)
+        st.pyplot(numWordsVP(hp123, 10, 5), use_container_width=True)
     with col2:
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have? From the looks of it, Slytherin and Gryffindor are the houses that share the record of number of words in a sentence, however there are small pieces toward the top of Slytherin and Ravenclaw that lead me to believe that they often have a lot more content in their lines.')
          
