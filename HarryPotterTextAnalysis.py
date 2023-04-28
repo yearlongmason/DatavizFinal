@@ -514,11 +514,6 @@ with tab1:
     st.markdown("<h3 color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
     st.markdown('The first three movies as a whole are relatively diverse, but definitely could have been more so. Of course the story is about Gryffindor, so the representation is bound to be dominated by them, however there were definitely moments across the movies where some characters belonging to other houses got their time to shine, whether that be a character like Draco who got to shine a bit more often than a lot of the other characters, or if it were a character with some more in depth lines than the majority of the Gryffindor lines. One of the most prominent things that came from this research is how little Hufflepuff shows up in the first three movies, with only 34 lines across all 3 movies naking up less than 1% of all lines across all 3 movies! That being said, Slytherin and Ravenclaw did a pretty good job in not letting Gryffindor completely rule the story!')
 
-    #Testing row method
-    row = st.rows(1)
-    with row:
-        st.altair_chart(linesPerHouse(hp123, 685, 475))
-        st.altair_chart(linesPerCharacter(hp123, 690, 518))
     #Test new format
     #tcol1, tcol2 = st.columns([3,1])
     #with tcol1:
