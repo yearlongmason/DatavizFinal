@@ -500,7 +500,10 @@ with tab1:
     with col1:
         st.altair_chart(linesPerHouse(hp123, 685, 475))
         st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
-        st.markdown("\n\n\n\n")
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp123, 13.3, 10))
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have? From the looks of it, Slytherin and Gryffindor are the houses that share the record of number of words in a sentence, however there are small pieces toward the top of Slytherin and Ravenclaw that lead me to believe that they often have a lot more content in their lines.')
