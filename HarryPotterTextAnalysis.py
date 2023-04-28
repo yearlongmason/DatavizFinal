@@ -535,22 +535,27 @@ with tab1:
         st.pyplot(numWordsVP(hp123, 10, 5), use_container_width=True)
     with col2:
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have? From the looks of it, Slytherin and Gryffindor are the houses that share the record of number of words in a sentence, however there are small pieces toward the top of Slytherin and Ravenclaw that lead me to believe that they often have a lot more content in their lines.')
+    col1, col2 = st.columns([1,4])
+    with col1:
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
+    with col2:
+        st.altair_chart(numWordsPerLineJP(hp123, 1100, 630))
          
-  
+         
 with tab2:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.altair_chart(linesPerHouse(hp1, 685, 475))
-        st.markdown('')
-        st.markdown('')
-        st.markdown('')
-        st.markdown('##### Number of Words Spoken Per Line by House')
-        st.pyplot(numWordsVP(hp1, 13.3, 10))
-    with col2:
-        st.altair_chart(linesPerCharacter(hp1, 690, 518))
-        st.altair_chart(numWordsPerLineJP(hp1, 750, 600))
-    st.altair_chart(numWordsPerLineHM(hp1, 1350, 400))
+    #col1, col2 = st.columns(2)
+    #with col1:
+    #    st.altair_chart(linesPerHouse(hp1, 685, 475))
+    #    st.markdown('')
+    #    st.markdown('')
+    #    st.markdown('')
+    #    st.markdown('##### Number of Words Spoken Per Line by House')
+    #    st.pyplot(numWordsVP(hp1, 13.3, 10))
+    #with col2:
+    #    st.altair_chart(linesPerCharacter(hp1, 690, 518))
+    #    st.altair_chart(numWordsPerLineJP(hp1, 750, 600))
+    #st.altair_chart(numWordsPerLineHM(hp1, 1350, 400))
   
   
 with tab3:
