@@ -532,7 +532,7 @@ with tab1:
     col1, col2 = st.columns([4,1])
     with col1:
         st.markdown('##### Number of Words Spoken Per Line by House')
-        st.pyplot(numWordsVP(hp123, 5, 1))
+        st.pyplot(numWordsVP(hp123, 10, 5))
     with col2:
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have? From the looks of it, Slytherin and Gryffindor are the houses that share the record of number of words in a sentence, however there are small pieces toward the top of Slytherin and Ravenclaw that lead me to believe that they often have a lot more content in their lines.')
          
