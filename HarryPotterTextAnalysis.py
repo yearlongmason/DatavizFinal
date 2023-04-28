@@ -519,16 +519,16 @@ with tab1:
     #st.markdown('The first three movies as a whole are relatively diverse, but definitely could have been more so. Of course the story is about Gryffindor, so the representation is bound to be dominated by them, however there were definitely moments across the movies where some characters belonging to other houses got their time to shine, whether that be a character like Draco who got to shine a bit more often than a lot of the other characters, or if it were a character with some more in depth lines than the majority of the Gryffindor lines. One of the most prominent things that came from this research is how little Hufflepuff shows up in the first three movies, with only 34 lines across all 3 movies naking up less than 1% of all lines across all 3 movies! That being said, Slytherin and Ravenclaw did a pretty good job in not letting Gryffindor completely rule the story!')
 
     #Test new format
-    tcol1, tcol2 = st.columns([3,1])
+    tcol1, tcol2 = st.columns([4,1])
     with tcol1:
-        st.altair_chart(linesPerHouse(hp123, 1000, 525))
+        st.altair_chart(linesPerHouse(hp123, 1100, 525))
     with tcol2:
         st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines with more than 6 times as much as it\'s successor: Slytherin. This is of course to be expected as the movies are first and foremost about them.')
-    tcol1, tcol2 = st.columns([1,3])
+    tcol1, tcol2 = st.columns([1,4])
     with tcol1:
         st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
     with tcol2:
-        st.altair_chart(linesPerCharacter(hp123, 1000, 600))
+        st.altair_chart(linesPerCharacter(hp123, 1100, 600))
          
   
 with tab2:
