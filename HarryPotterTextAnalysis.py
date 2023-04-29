@@ -488,8 +488,10 @@ st.markdown(f'<center><img src="data:image/gif;base64,{imgurl}" alt="Hogwarts Lo
 
 st.markdown("<h3 style='text-align: center; color: #000000;'>An analysis of the first three Harry Potter movies by Mason Lee</h3>", unsafe_allow_html=True)
 st.markdown("As a kid, I was always a big fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
-st.markdown("fundamental research question will go here")
+st.markdown('##### The Data')
 st.markdown("Describe the data here")
+st.markdown('##### What\'s the Purpose of this?')
+st.markdown("fundamental research question will go here")
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban", "First 3 Movies Combined"])
