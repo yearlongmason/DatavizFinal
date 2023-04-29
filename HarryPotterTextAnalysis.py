@@ -487,11 +487,10 @@ st.markdown(f'<center><img src="data:image/gif;base64,{imgurl}" alt="Hogwarts Lo
 
 
 st.markdown("<h3 style='text-align: center; color: #000000;'>An analysis of the first three Harry Potter movies by Mason Lee</h3>", unsafe_allow_html=True)
-st.markdown("As a kid, I was always a big fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. While looking for available data about the movies to analyze as a fun side project, I stumbled across this dataset that contained every line from the first three movies. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
+st.markdown("As a kid, I was always a big fan of the Harry Potter movies. There was always something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was something really enjoyable as a kid, and was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis on them. What started as a fun project to work on in my freetime ended up turning into my final project for my data visualization class!")
 st.markdown('##### The Data')
 st.markdown("Describe the data here")
-st.markdown('##### What\'s the Purpose of this?')
-st.markdown("fundamental research question will go here")
+st.markdown('Essentially, the data to start off with contained every line from the first three Harry Potter movies as well as the character that said it. To start off with, this was not a whole lot of data; however, it offered a lot of potential for creating new data, such as \'House\' which is just what house the character is in, and \'numWords\', which is the number of words in the sentence, which is ideally supposed to give insight into the amount of content in a specific line. All of this being said, what am I trying to do with all of this information? It\'s no secret that the Harry Potter movies are mostly dominated by Gryffindor. Gryffindor is cool and all, but wouldn\'t it be cool to hear from some of the other houses too? I\'m hoping to explore and learn more about how different houses are represented across the first three Harry Potter movies. More specifically, I would like to show how the representation of houses in the Harry Potter movies evolves and changes as we progress further into the wizarding world!')
 
 
 tab1, tab2, tab3, tab4 = st.tabs(["Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban", "First 3 Movies Combined"])
