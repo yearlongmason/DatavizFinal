@@ -539,7 +539,7 @@ with tab1:
         st.markdown("")
         st.markdown("")
         st.markdown("")
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!)')
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!). Here we can see that pretty much every house is more dense towards the bottom, but for Slytherin and Ravenclaw, it looks like they tend to have more to say relative to the number of lines they have in total. With that in mind, it looks like muggles in this movie tend to say a lot less per line than some of the houses that have a similar number of lines, which leads me to believe that Slytherins and Ravenclaws have fewer lines total, but the lines they do have are often more meaningful.')
     with col2:
         st.altair_chart(numWordsPerLineJP(hp1, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp1, 1350, 400))
