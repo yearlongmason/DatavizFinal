@@ -516,7 +516,7 @@ with tab1:
         st.markdown("")
         st.markdown("")
         st.markdown("")
-        st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is of course to be expected as the movies are first and foremost about them. With this one, we can see that no one really even comes close to Gryffindor, which isn\'t really a big surprise, but something worth noting. The house with the second most lines is Slytherin, with less than a tenth of what Gryffindor has! Aside from houses, muggles account for about 12% of all lines in the first movie, and Hufflepuff has no lines, which does not bode well for the diversity between houses in this movie!')
+        st.markdown('This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is to be expected, as the movies are first and foremost about them. The house with the second-most lines is Slytherin, and it has less than a tenth of what Gryffindor has! Aside from that, Ravenclaw has a surprising amount of representation in this movie, but not from the students. Ravenclaw lines in this movie are actually nearly entirely made up of professors such as Quirrell and Professor Flitwick, with other Ravenclaws being Ollivander and Madam Hooch. Aside from houses, muggles account for about 12% of all lines in the first movie, and Hufflepuff has no lines, which does not bode well for the diversity between houses in this movie!')
     col1, col2 = st.columns([1,4])
     with col1:
         st.markdown("")
