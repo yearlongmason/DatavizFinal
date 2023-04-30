@@ -490,7 +490,7 @@ st.markdown("<h3 style='text-align: center; color: #000000;'>An analysis of the 
 st.markdown('##### Why this project?')
 st.markdown("As a kid, I was always a big fan of the Harry Potter movies. It was something about the idea of magic, the worldbuilding, and the aesthetic that came with the movies that was really enjoyable as a kid, and it was something I never really stopped enjoying. With that in mind, I figured it could be fun to do some sort of analysis of the movies. What started as a fun project to work on in my free time ended up turning into my final project for my data visualization class!")
 st.markdown('##### The Data')
-st.markdown("What is this data about, anyway? Essentially, the data to start off with contained every line from the first three Harry Potter movies as well as the character that said it. To start off with, this was not a whole lot of data; however, it offered a lot of potential for creating new data, such as "house", which is just what house the character is in, and 'numWords', which is the number of words in the sentence, which is ideally supposed to give insight into the amount of content in a specific line.")
+st.markdown("What is this data about, anyway? Essentially, the data to start off with contained every line from the first three Harry Potter movies as well as the character that said it. To start off with, this was not a whole lot of data; however, it offered a lot of potential for creating new data, such as \"house\", which is just what house the character is in, and \"numWords\", which is the number of words in the sentence, which is ideally supposed to give insight into the amount of content in a specific line.")
 st.markdown('##### The Data')
 st.markdown('')
 
