@@ -519,6 +519,9 @@ with tab1:
         st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is of course to be expected as the movies are first and foremost about them.')
     col1, col2 = st.columns([1,4])
     with col1:
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
         st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor.')
     with col2:
         st.altair_chart(linesPerCharacter(hp1, 1100, 630))
@@ -527,9 +530,15 @@ with tab1:
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp1, 10, 5), use_container_width=True)
     with col2:
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have?')
     col1, col2 = st.columns([1,4])
     with col1:
+        st.markdown("")
+        st.markdown("")
+        st.markdown("")
         st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
     with col2:
         st.altair_chart(numWordsPerLineJP(hp1, 1100, 630))
