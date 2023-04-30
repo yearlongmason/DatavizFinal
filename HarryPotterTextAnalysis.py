@@ -522,7 +522,7 @@ with tab1:
         st.markdown("")
         st.markdown("")
         st.markdown("")
-        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor.')
+        st.markdown('This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first important thing to note is that Harry alone has 330 lines, which makes up about 20% of all lines in the movies. Aside from that, all six of the top six characters with the most lines are all in Gryffindor, and their lines make up about 67% of all lines! Aside from Gryffindor, the next four characters on the chart are all outside of Gryffindor and offer a little bit of exploration into different houses. Slytherin definitely has two very important characters, Draco and Snape, who both made it into the top 11 most frequently speaking characters. Additionally, Quirrell makes a decent sized dent in the Ravenclaw representation in this movie.')
     with col2:
         st.altair_chart(linesPerCharacter(hp1, 1100, 630))
     col1, col2 = st.columns([4,1])
