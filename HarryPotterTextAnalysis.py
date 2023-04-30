@@ -516,7 +516,6 @@ with tab1:
         st.markdown("")
         st.markdown("")
         st.markdown("")
-        st.markdown("")
         st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is of course to be expected as the movies are first and foremost about them.')
     col1, col2 = st.columns([1,4])
     with col1:
