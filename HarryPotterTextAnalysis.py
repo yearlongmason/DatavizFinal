@@ -539,7 +539,7 @@ with tab1:
         st.markdown("")
         st.markdown("")
         st.markdown("")
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
     with col2:
         st.altair_chart(numWordsPerLineJP(hp1, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp1, 1350, 400))
@@ -581,7 +581,7 @@ with tab2:
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have?')
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
     with col2:
         st.altair_chart(numWordsPerLineJP(hp2, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp2, 1350, 400))
@@ -623,7 +623,7 @@ with tab3:
         st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have?')
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor and Slytherin the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines such as Gryffindor the points can get very dense especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (double click the plot to reset the view!)')
     with col2:
         st.altair_chart(numWordsPerLineJP(hp3, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp3, 1350, 400))
