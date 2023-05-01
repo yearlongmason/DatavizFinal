@@ -318,7 +318,7 @@ def linesPerHouse(data, width, height):
     chart = chart.properties(width=width, height=height) #Set figure size w685 h475
     chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
-    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
+    chart = chart.configure_legend(titleColor='black', titleFontSize=17, labelFontSize=15) #Sets Legend attributes
     chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
     
     return chart
@@ -412,7 +412,7 @@ def numWordsPerLineJP(data, width, height):
     chart = chart.properties(width=width, height=height) #Set figure size w750 h600
     chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20) #Sets title size
-    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13) #Sets Legend attributes
+    chart = chart.configure_legend(titleColor='black', titleFontSize=17, labelFontSize=15) #Sets Legend attributes
     chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
     chart = chart.interactive()
 
@@ -468,7 +468,7 @@ def numWordsPerLineHM(data, width, height):
     chart = chart.properties(width=width, height=height) #1350, 400
     chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20)
-    chart = chart.configure_legend(titleColor='black', titleFontSize=14, labelFontSize=13)
+    chart = chart.configure_legend(titleColor='black', titleFontSize=17, labelFontSize=15) #Sets Legend attributes
     chart = chart.configure_view(strokeWidth=2)
          
     return chart
