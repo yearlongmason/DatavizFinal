@@ -468,7 +468,7 @@ def numWordsPerLineHM(data, width, height):
     chart = chart.properties(width=width, height=height) #1350, 400
     chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
     chart = chart.configure_title(fontSize=20)
-    chart = chart.configure_legend(titleColor='black', titleFontSize=17, labelFontSize=15) #Sets Legend attributes
+    chart = chart.configure_legend(titleColor='black', titleFontSize=16, labelFontSize=15) #Sets Legend attributes
     chart = chart.configure_view(strokeWidth=2)
          
     return chart
