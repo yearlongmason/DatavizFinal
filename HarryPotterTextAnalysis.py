@@ -574,7 +574,10 @@ with tab2:
         st.markdown("This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is, of course, to be expected, as the movies are first and foremost about them. A very exciting development in this movie is the introduction of Hufflepuff characters that speak! While it's not much, Hufflepuffs have a total of 34 lines in The Chamber of Secrets! Another cool thing to be noted in this chart is that Slytherin and Ravenclaw lines went up by a lot, while the number of Gryffindor lines actually went down. Slytherin came in with a total of 251 lines in this movie, which is about 2.5 times more than they had in The Sorcerer's Stone!")
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor.')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. While, much like the last movie, it's still heavily skewed toward Gryffindor, it made significant progress toward the representation of other houses! One of the big things that can't go unnoticed in this chart is the appearance and significance of Gilderoy Lockhart in this movie. Lockhart provided the majority of Ravenclaw lines in this movie, contributing a total of 121 lines, with the only other major contributor being Moaning Myrtle. Slytherin has a couple characters that made it into the top 11 with the most lines this time, including two Malfoys (Lucius and Draco) and Tom Riddle, who communally made up a good portion of the movie's lines.")
     with col2:
         st.altair_chart(linesPerCharacter(hp2, 1100, 630))
     col1, col2 = st.columns([4,1])
