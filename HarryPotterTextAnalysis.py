@@ -585,7 +585,10 @@ with tab2:
         st.markdown('##### Number of Words Spoken Per Line by House')
         st.pyplot(numWordsVP(hp2, 10, 5), use_container_width=True)
     with col2:
-        st.markdown('These violin plots are where we take our first dive into the number of words per sentence. This metric should instead of telling us how many total lines each house has, what is the quality of the lines each house does have?')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown("These violin plots are where we take our first dive into the number of words per sentence. Instead of telling us how many total lines each house has, this metric should explain how much content is actually in each line. It looks like in this movie, Slytherin has the line with the most words in it rather than Gryffindor, which is very cool to see! Additionally, it looks like Ravenclaw once again tends to have a higher word density per line than some of the other houses! This leads me to believe that while they don't have as many lines as Gryffindor, they have a lot to say in the ones they do have. Hufflepuff looks like it's pretty dense towards the bottom, which doesn't really say too much in the few lines that they do have.")
     col1, col2 = st.columns([1,4])
     with col1:
         st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!)')
