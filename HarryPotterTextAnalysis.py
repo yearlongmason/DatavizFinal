@@ -645,7 +645,10 @@ with tab3:
         st.markdown("These violin plots are where we take our first dive into the number of words per sentence. Instead of telling us how many total lines each house has, this metric should explain how much content is actually in each line. These plots look like they're all pretty consistently dense at the bottom, around the five-word mark. From the looks of the Ravenclaw violin plot, it seems like there's a bit more density at the top, but considering there's only one Ravenclaw in the movie and there are only 39 lines, I'd say that it's more than likely just due to an outlier or two. The other thing that I notice in these plots is that even though Slytherin maybe doesn't consistently make it to a very high number of words per sentence, they still manage to get the record for this movie too!")
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!)')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!) One of the main things that I notice initially in this plot is how often Slytherin makes it towards the top, mostly due to Fudge and Snape having a couple of lines that make it pretty high. Ravenclaw also makes it pretty high a couple times despite having very few lines! As for the muggles in this movie, it seems like they pretty much all stay towards the bottom of the plot, with most of their lines being less than 10 words.')
     with col2:
         st.altair_chart(numWordsPerLineJP(hp3, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp3, 1350, 400))
