@@ -654,7 +654,7 @@ with tab3:
     st.altair_chart(numWordsPerLineHM(hp3, 1350, 400))
     st.markdown('This heatmap is the last visualization about the number of words per line. From the color scale on the right, it can be seen that the sentences with more words are darker, and the lighter ones have fewer words per line. This can generally be interpreted as the darker spots tending to be more dense with content, meaning more content coming from that character, which is a representation of the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to reload the page a couple times to get a feel for the data using different samples!')
     st.markdown("<h3 color: #000000;'>Conclusions</h3>", unsafe_allow_html=True)
-    st.markdown('Text about the conclusion')
+    st.markdown("In my opinion, this movie takes a huge step backward in terms of the representation of different houses. Each house except Gryffindor had fewer lines than the last movie, and Hufflepuff is back to square one with 0 lines in this movie. Not only did Ravenclaw go from 147 lines in The Chamber of Secrets down to 39 lines in The Prisoner of Azkaban, but all of those lines were said by one character. While Slytherin still had fewer lines than the previous movie, it wasn't as bad as the number of Ravenclaw lines in this movie. Slytherin also had more people representing them than Ravenclaw did, with three of their top speaking characters making it to the top 11 most-spoken characters in the movie! However, I would say that this movie had the least representation of other houses of all three of the first three movies.")
 
 
 
