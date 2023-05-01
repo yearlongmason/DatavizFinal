@@ -625,10 +625,13 @@ with tab3:
         st.markdown('')
         st.markdown('')
         st.markdown('')
-        st.markdown("This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is to be expected, as the movies are first and foremost about them. It looks like we're back to square one in terms of house representation. Hufflepuff is back to having zero lines, and Ravenclaw even went back a step! With the absence of Gilderoy Lockhart, Ravenclaw has suffered a massive hit in the number of lines spoken in this movie. Ravenclaw only has a total of 39 lines, and all of them were said by one person: Professor Trelawney. However, Slytherin still manages to keep up its numbers a bit with Snape, Cornelius Fudge, and Draco Malfoy.")
+        st.markdown("This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is to be expected, as the movies are first and foremost about them. It looks like we're back to square one in terms of house representation. Hufflepuff is back to having zero lines, and Ravenclaw even went back a step! With the absence of Gilderoy Lockhart, Ravenclaw has suffered a massive hit in the number of lines spoken in this movie. Ravenclaw only has a total of 39 lines, and all of them were said by one person: Professor Trelawney. However, Slytherin still manages to keep up its numbers a bit, at least more than the first movie, despite being knocked down a bit in numbers since the last movie.")
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor.')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. In this chart, we can see that pretty much all of the characters with the most lines are in Gryffindor. All seven of the top seven characters with the most lines are in Gryffindor and account for about 67 percent of the total lines in the movie. With that in mind, we still have some other characters that managed to get into the top 11 characters with the most lines. Three of the four characters left are in Slytherin: Snape, Cornelius Fudge, and Draco Malfoy, two of whom have been in the top 11 most-spoken characters for all three of the first three movies! Also on that list is the only speaking Ravenclaw in the movie: Professor Trelawney!")
     with col2:
         st.altair_chart(linesPerCharacter(hp3, 1100, 630))
     col1, col2 = st.columns([4,1])
