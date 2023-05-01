@@ -571,7 +571,7 @@ with tab2:
         st.markdown('')
         st.markdown('')
         st.markdown('')
-        st.markdown("This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is, of course, to be expected, as the movies are first and foremost about them. A very exciting development in this movie is the introduction of Hufflepuff characters that speak! While it's not much, Hufflepuffs have a total of 34 lines in The Chamber of Secrets! Another cool thing to be noted in this chart is that Slytherin and Ravenclaw lines went up by a lot, while the number of Gryffindor lines actually went down. Slytherin came in with a total of 251 lines in this movie, which is about 2.5 times more than they had in The Sorcerer's Stone!")
+        st.markdown("This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is to be expected, as the movies are first and foremost about them. A very exciting development in this movie is the introduction of Hufflepuff characters that speak! While it's not much, Hufflepuffs have a total of 34 lines in The Chamber of Secrets! Another cool thing to be noted in this chart is that Slytherin and Ravenclaw lines went up by a lot, while the number of Gryffindor lines actually went down. Slytherin came in with a total of 251 lines in this movie, which is about 2.5 times more than they had in The Sorcerer's Stone!")
     col1, col2 = st.columns([1,4])
     with col1:
         st.markdown('')
@@ -622,7 +622,10 @@ with tab3:
     with col1:
         st.altair_chart(linesPerHouse(hp3, 1100, 630))
     with col2:
-        st.markdown('This is a great start of understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is of course to be expected as the movies are first and foremost about them.')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown("This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines. This is to be expected, as the movies are first and foremost about them. It looks like we're back to square one in terms of house representation. Hufflepuff is back to having zero lines, and Ravenclaw even went back a step! With the absence of Gilderoy Lockhart, Ravenclaw has suffered a massive hit in the number of lines spoken in this movie. Ravenclaw only has a total of 39 lines, and all of them were said by one person: Professor Trelawney. However, Slytherin still manages to keep up its numbers a bit with Snape, Cornelius Fudge, and Draco Malfoy.")
     col1, col2 = st.columns([1,4])
     with col1:
         st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor.')
