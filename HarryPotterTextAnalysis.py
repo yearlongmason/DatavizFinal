@@ -535,7 +535,7 @@ with tab1:
     
     col1, col2 = st.columns([4,1])
     with col1:
-        st.altair_chart(linesPerHouse(hp1, 1100, 630))
+        st.altair_chart(linesPerHouse(hp1, 1100, 630), use_container_width=True)
     with col2:
         st.markdown("")
         st.markdown("")
