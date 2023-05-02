@@ -219,14 +219,16 @@ hp3['MovieNumber'] = 3
 
 #Creating dataframe for all three movies combined (hp123)
 #Creating one dataframe for all 3 movies
-query = """SELECT * FROM hp1
+query = """
+SELECT * FROM hp1
 UNION ALL
 SELECT * FROM hp2
 UNION ALL
 SELECT * FROM hp3
-ORDER BY MovieNumber;""" #Using SQL commands to get the union of all three movies
+ORDER BY MovieNumber;
+""" #Using SQL commands to get the union of all three movies
 hp123 = sqldf(query, globals())
-#hp123 = pd.concat([hp1, hp2, hp3])
+#hp123 = pd.concat([hp1, hp2, hp3]) #This is pretty much the pandas equivalent of the above statement
 
 
 
