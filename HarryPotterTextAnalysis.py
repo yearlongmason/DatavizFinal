@@ -584,7 +584,7 @@ with tab2:
     
     col1, col2 = st.columns([4,1])
     with col1:
-        st.altair_chart(linesPerHouse(hp2, 1100, 630))
+        st.altair_chart(linesPerHouse(hp2, 1100, 630), use_container_width=True)
     with col2:
         st.markdown('')
         st.markdown('')
@@ -598,7 +598,7 @@ with tab2:
         st.markdown('')
         st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. While, much like the last movie, it's still heavily skewed toward Gryffindor, it made significant progress toward the representation of other houses! One of the big things that can't go unnoticed in this chart is the appearance and significance of Gilderoy Lockhart in this movie. Lockhart provided the majority of Ravenclaw lines in this movie, contributing a total of 121 lines, with the only other major contributor being Moaning Myrtle. Slytherin has a couple characters that made it into the top 11 with the most lines this time, including two Malfoys (Lucius and Draco) and Tom Riddle, who collectively made up a good portion of the movie's lines.")
     with col2:
-        st.altair_chart(linesPerCharacter(hp2, 1100, 630))
+        st.altair_chart(linesPerCharacter(hp2, 1100, 630), use_container_width=True)
     
     col1, col2 = st.columns([4,1])
     with col1:
@@ -617,9 +617,9 @@ with tab2:
         st.markdown('')
         st.markdown("The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!) One of the things that I saw in the violin plot that is also prevalent here is the Ravenclaw lines and how their distribution doesn't tend towards the bottom as much as some of the others do, partially because there's less data but also because they just generally say more than others do with their lines. Another notable thing about this plot is that Slytherin got the sentence with the largest number of words in this movie at 36 words!")
     with col2:
-        st.altair_chart(numWordsPerLineJP(hp2, 1100, 630))
+        st.altair_chart(numWordsPerLineJP(hp2, 1100, 630), use_container_width=True)
     
-    st.altair_chart(numWordsPerLineHM(hp2, 1350, 400))
+    st.altair_chart(numWordsPerLineHM(hp2, 1350, 400), use_container_width=True)
     st.button('New random sample', key='hp2')
     st.markdown("This heatmap is the last visualization about the number of words per line. There's a color scale on the right that says that the sentences with more words are darker, and the lighter ones have fewer words per line. This can generally be interpreted as the darker spots tending to be more dense with content, meaning more coming from that character, which is a representation of the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to press the button below a couple times to get a feel for the data using different samples!")
    
@@ -633,7 +633,7 @@ with tab3:
 
     col1, col2 = st.columns([4,1])
     with col1:
-        st.altair_chart(linesPerHouse(hp3, 1100, 630))
+        st.altair_chart(linesPerHouse(hp3, 1100, 630), use_container_width=True)
     with col2:
         st.markdown('')
         st.markdown('')
@@ -647,7 +647,7 @@ with tab3:
         st.markdown('')
         st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. In this chart, we can see that pretty much all of the characters with the most lines are in Gryffindor. All seven of the top seven characters with the most lines are in Gryffindor and account for about 67 percent of the total lines in the movie. With that in mind, we still have some other characters that managed to get into the top 11 characters with the most lines. Three of the four characters left are in Slytherin: Snape, Cornelius Fudge, and Draco Malfoy, two of whom have been in the top 11 most-spoken characters for all three of the first three movies! Also on that list is the only speaking Ravenclaw in the movie: Professor Trelawney!")
     with col2:
-        st.altair_chart(linesPerCharacter(hp3, 1100, 630))
+        st.altair_chart(linesPerCharacter(hp3, 1100, 630), use_container_width=True)
     
     col1, col2 = st.columns([4,1])
     with col1:
@@ -666,9 +666,9 @@ with tab3:
         st.markdown('')
         st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!) One of the main things that I notice initially in this plot is how often Slytherin makes it towards the top, mostly due to Fudge and Snape having a couple of lines that make it pretty high. Ravenclaw also makes it pretty high a couple times despite having very few lines! As for the muggles in this movie, it seems like they pretty much all stay towards the bottom of the plot, with most of their lines being less than 10 words.')
     with col2:
-        st.altair_chart(numWordsPerLineJP(hp3, 1100, 630))
+        st.altair_chart(numWordsPerLineJP(hp3, 1100, 630), use_container_width=True)
     
-    st.altair_chart(numWordsPerLineHM(hp3, 1350, 400))
+    st.altair_chart(numWordsPerLineHM(hp3, 1350, 400), use_container_width=True)
     st.button('New random sample', key='hp3')
     st.markdown("This heatmap is the last visualization about the number of words per line. There's a color scale on the right that says that the sentences with more words are darker, and the lighter ones have fewer words per line. This can generally be interpreted as the darker spots tending to be more dense with content, meaning more coming from that character, which is a representation of the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to press the button below a couple times to get a feel for the data using different samples!")
     
@@ -682,7 +682,7 @@ with tab4:
 
     col1, col2 = st.columns([4,1])
     with col1:
-        st.altair_chart(linesPerHouse(hp123, 1100, 630))
+        st.altair_chart(linesPerHouse(hp123, 1100, 630), use_container_width=True)
     with col2:
         st.markdown('')
         st.markdown('')
@@ -696,7 +696,7 @@ with tab4:
         st.markdown('')
         st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first seven characters with the most lines alone are all in Gryffindor and make up more than 60% of all lines spoken across all three movies! Aside from the top seven that make it so skewed, we have a bit of a mix in the houses of the last four characters. Keeping with the trend of the other movies, both Snape and Draco are keeping up the Slytherin numbers, both making it to the top 11 most frequently speaking characters! The last two characters are Gilderoy Lockhart, who had almost all of the Ravenclaw lines in the Chamber of Secrets, and Uncle Vernon, who had a total of 90 lines.")
     with col2:
-        st.altair_chart(linesPerCharacter(hp123, 1100, 630))
+        st.altair_chart(linesPerCharacter(hp123, 1100, 630), use_container_width=True)
     
     col1, col2 = st.columns([4,1])
     with col1:
@@ -715,9 +715,9 @@ with tab4:
         st.markdown('')
         st.markdown("The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!). From this plot, we can see that some of the ideas from the violin plots about Slytherin and Ravenclaw having more words per line tend to be true here too. They're still dense towards the bottom, but they do a pretty good job of having more content in their sentences too! As for Hufflepuff, it looks like they do a decent job of getting a decent amount of words in, especially considering the number of lines they have.")
     with col2:
-        st.altair_chart(numWordsPerLineJP(hp123, 1100, 630))
+        st.altair_chart(numWordsPerLineJP(hp123, 1100, 630), use_container_width=True)
     
-    st.altair_chart(numWordsPerLineHM(hp123, 1350, 400))
+    st.altair_chart(numWordsPerLineHM(hp123, 1350, 400), use_container_width=True)
     st.button('New random sample', key='hp123')
     st.markdown("This heatmap is the last visualization about the number of words per line. There's a color scale on the right that says that the sentences with more words are darker, and the lighter ones have fewer words per line. This can generally be interpreted as the darker spots tending to be more dense with content, meaning more coming from that character, which is a representation of the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to press the button below a couple times to get a feel for the data using different samples!")
     
