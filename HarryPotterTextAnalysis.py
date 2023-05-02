@@ -218,7 +218,6 @@ hp3['MovieNumber'] = 3
 
 
 #Creating dataframe for all three movies combined (hp123)
-#Creating one dataframe for all 3 movies
 query = """
 SELECT * FROM hp1
 UNION ALL
@@ -233,7 +232,52 @@ hp123 = sqldf(query, globals())
 
 
 #Dataviz functions
+def linesPerHouse(data, width, height):
+    houseLines = data.groupby('House', as_index=False).count() #Groups data by house
+    houseLines['Number of Lines'] = houseLines['Sentence'] #Saved for the tooltip later
+
+    #Logging data in order to normalize it, otherwise it's very skewed
+    houseLines['Sentence'] = [np.around(np.log10(x),2) for x in houseLines['Sentence']]
+
+    #Keeps Hufflepuff in the chart even if they have no lines
+    if 'Hufflepuff' not in houseLines['House']:
+        #Adds the housename + rest of the colunms as 0 (weird numpy workaround due to varying dataframe sizes)
+        houseLines.loc[len(houseLines.index)] = ['Hufflepuff'] + list(np.zeros(len(data.columns)))
+        
+    #Define color parameters based on whether or not Hufflepuff has any lines
+    if 'Hufflepuff' in list(data['House']):
+        houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
+        colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
+    else:
+        houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Muggle', 'Hufflepuff']
+        colors = ['#be0119', '#009500', '#069af3', '#5f6b73', '#feb308']
+    
+    #setting axis labels [weird javascript thing >:(]
+    axisLabels = "datum.label == 1 ? '10 lines' : datum.label == 2 ? '100 lines' : '1000 lines'"
+    labelVals = [1,2,3]
+    
+    #Create chart
+    chart = alt.Chart(houseLines, title = 'Number of Lines per House').mark_bar().encode(
+        alt.X('House', sort=houses,\
+             axis=alt.Axis(labelAngle=0, titleColor = 'black')),
+        alt.Y('Sentence', title='Number of Lines (log10 scale)',\
+              scale=alt.Scale(domain=[0, houseLines['Sentence'].max()+houseLines['Sentence'].max()*.007]),\
+              axis=alt.Axis(labelExpr=axisLabels, values=labelVals, titleColor = 'black')),
+        color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
+        tooltip=['House', 'Number of Lines']
+    )
+    chart = chart.properties(width=width, height=height) #Set figure size w685 h475
+    chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
+    chart = chart.configure_title(fontSize=20) #Sets title size
+    chart = chart.configure_legend(titleColor='black', titleFontSize=17, labelFontSize=15) #Sets Legend attributes
+    chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
+    
+    return chart
+
+
 def linesPerCharacter(data, width, height):
+    """This takes in data that is one of the hpn dataframes, and the width and height of the figure
+    It should return an altair chart that contains the top 11 most speaking characters colored by their house"""
     #Defining houses
     Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
                'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
@@ -291,47 +335,6 @@ def linesPerCharacter(data, width, height):
     return chart
 
 
-def linesPerHouse(data, width, height):
-    houseLines = data.groupby('House', as_index=False).count() #Groups data by house
-    houseLines['Number of Lines'] = houseLines['Sentence'] #Saved for the tooltip later
-
-    #Logging data in order to normalize it, otherwise it's very skewed
-    houseLines['Sentence'] = [np.around(np.log10(x),2) for x in houseLines['Sentence']]
-
-    if 'Hufflepuff' not in houseLines['House']: #Keeps Hufflepuff in the chart even if they're not there
-        #Adds the housename + rest of the colunms as 0 (weird numpy workaround due to varying dataframe sizes)
-        houseLines.loc[len(houseLines.index)] = ['Hufflepuff'] + list(np.zeros(len(data.columns)))
-        
-    #Define color parameters
-    if 'Hufflepuff' in list(data['House']):
-        houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
-        colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
-    else:
-        houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Muggle', 'Hufflepuff']
-        colors = ['#be0119', '#009500', '#069af3', '#5f6b73', '#feb308']
-    
-    #setting axis labels [weird javascript thing >:(]
-    axisLabels = "datum.label == 1 ? '10 lines' : datum.label == 2 ? '100 lines' : '1000 lines'"
-    labelVals = [1,2,3]
-    #Create chart
-    chart = alt.Chart(houseLines, title = 'Number of Lines per House').mark_bar().encode(
-        alt.X('House', sort=houses,\
-             axis=alt.Axis(labelAngle=0, titleColor = 'black')),
-        alt.Y('Sentence', title='Number of Lines (log10 scale)',\
-              scale=alt.Scale(domain=[0, houseLines['Sentence'].max()+houseLines['Sentence'].max()*.007]),\
-              axis=alt.Axis(labelExpr=axisLabels, values=labelVals, titleColor = 'black')),
-        color = alt.Color('House', scale=alt.Scale(domain = houses, range=colors)),
-        tooltip=['House', 'Number of Lines']
-    )
-    chart = chart.properties(width=width, height=height) #Set figure size w685 h475
-    chart = chart.configure_axis(labelFontSize=15, titleFontSize=18) #Set tick label size and axis title sizes
-    chart = chart.configure_title(fontSize=20) #Sets title size
-    chart = chart.configure_legend(titleColor='black', titleFontSize=17, labelFontSize=15) #Sets Legend attributes
-    chart = chart.configure_view(strokeWidth=2) #Sets a border around the chart
-    
-    return chart
-
-
 def numWordsVP(data, width, height):
     fig, ax = plt.subplots(figsize=(width, height))#w13.3 h10
     fig.set_facecolor('White')
@@ -346,7 +349,7 @@ def numWordsVP(data, width, height):
     #Creating the actual plot
     sns.violinplot(data=data, x='House', y='numWords', linewidth=1.5, palette=colors, order = houses)
     
-    #ax.title not bein used in streamlit implimentation becasue the title gets a little weird, so I manually add it in
+    #ax.title not being used in streamlit implimentation becasue the title gets a little weird, so I manually add it in
     #ax.set_title('Number of Words Spoken Per Line by House', fontsize=18, fontweight='bold', loc='left', color='xkcd:grey')
     
     ax.set_ylabel('Number of Words per Line', fontsize=9)
@@ -359,18 +362,20 @@ def numWordsVP(data, width, height):
     ax.tick_params(axis='y', width=1, length=5, labelsize=7, color='xkcd:grey')
     ax.tick_params(axis='x', width=1, length=5, labelsize=7, color='xkcd:grey')
     
-    c='xkcd:white'
     ax.spines['bottom'].set_color('xkcd:gray')
-    ax.spines['top'].set_color(c)
+    ax.spines['top'].set_color('xkcd:white')
     ax.spines['left'].set_color('xkcd:gray')
-    ax.spines['right'].set_color(c)
+    ax.spines['right'].set_color('xkcd:white')
 
     return fig
 
 
 def numWordsPerLineJP(data, width, height):
+    #Setting house colors
     houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
     colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
+    
+    #Getting x-axis values (jittered within .35)
     houseInt = []
     for i in data['House']:
         if i == 'Gryffindor':
@@ -406,15 +411,14 @@ def numWordsPerLineJP(data, width, height):
                     houseInt.append(4-np.random.normal()%.35)
     data['houseInt'] = houseInt
     
+    #Setting axis labels [weird javascript thing >:(] Based on whether or not Hufflepuff has any lines
     if 'Hufflepuff' in list(data['House']):
         axisLabels = "datum.label == 5 ? 'Muggle' : datum.label == 4 ? 'Hufflepuff' : datum.label == 3 ? 'Ravenclaw' : datum.label == 2 ? 'Slytherin' : 'Gryffindor'"
         axisVals = [1,2,3,4,5]
     else:
         axisLabels = "datum.label == 4 ? 'Muggle' : datum.label == 3 ? 'Ravenclaw' : datum.label == 2 ? 'Slytherin' : 'Gryffindor'"
         axisVals = [1,2,3,4]
-
-    #setting axis labels [weird javascript thing >:(]
-    axis_labels = "datum.label == 1 ? 'Muggle' : datum.label == 2 ? 'Hufflepuff' : datum.label == 3 ? 'Ravenclaw' : datum.label == 4 ? 'Slytherin' : 'Gryffindor'"
+        
     chart = alt.Chart(data, title='Number of Words Per Line by House').mark_circle(size=50).encode(
         alt.Y("numWords:Q", title = 'Number of Words Per Line', axis = alt.Axis(titleColor='black')),
         alt.X("houseInt:Q", axis=alt.Axis(labelExpr=axisLabels, values=axisVals, titleColor='black'), title='House',
@@ -434,8 +438,9 @@ def numWordsPerLineJP(data, width, height):
 
 
 def numWordsPerLineHM(data, width, height):
-    #Gets length of a sentence in characters as a potential sorting feature for a less consistent looking sort
+    #Gets length of a sentence in characters as a potential sorting feature for a less consistent looking sort (aestetic purposes) not used currently, but I like to have as an option
     data['sentenceLen'] = [len(x) for x in data['Sentence']]
+    
     #Randomizes the lines displayed by picking a random 34 lines from each house
     sortby = 'numWords'
     gryf = data[data['House']=='Gryffindor'].sample(25).sort_values(by=sortby, ascending = False)
@@ -507,9 +512,10 @@ st.markdown('##### The Data')
 st.markdown("What is this data about, anyway? The data to start off with contained every line from the first three Harry Potter movies as well as the character that said it. This was not a whole lot of information; however, it offered a lot of potential for creating new data, such as \"numWords\", which is the number of words in the sentence, which is ideally supposed to give insight into the amount of content in a specific line, and  \"house\", which is just what house the character is in. As a disclaimer, when separating characters into their respective houses, I created a \"muggle\" category as a catchall for characters that were not sorted into a house. This means that there are some characters (Dobby and Griphook) that are not technically muggles but do not have a house associated with them, and because of that, they were placed in the \"muggle\" category. That being said, what am I trying to do with all of this information? It's no secret that the Harry Potter movies are mostly dominated by Gryffindor. Gryffindor is cool and all, but wouldn't it be cool to hear from some of the other houses too? I'm hoping to explore and learn more about how different houses are represented across the first three Harry Potter movies. More specifically, I would like to show how the representation of houses in the Harry Potter movies evolves and changes as we progress further into the wizarding world!")
 
 
+#Creating all tabs that actually contain data and descriptions for each movie
 tab1, tab2, tab3, tab4 = st.tabs(["Sorcerer's Stone", "Chamber of Secrets", "Prizoner of Azkaban", "First 3 Movies Combined"])
          
-         
+    
 with tab1:
     st.title("Analysis of Harry Potter and the Sorcerer's Stone")
     
@@ -674,7 +680,7 @@ with tab4:
         st.markdown('')
         st.markdown('')
         st.markdown('')
-        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first seven characters with the most lines alone are all in Gryffindor and make up more than 60% of all lines spoken across all three movies! Aside from the top seven that make it so skewed, we have a bit of a mix in the houses of the last four characters. Keeping with the trend of all three of the other movies, both Snape and Draco are keeping up the Slytherin numbers, both making it to the top 11 most frequently speaking characters! The last two characters are Gilderoy Lockhart, who had almost all of the Ravenclaw lines in The Chamber of Secrets, and Uncle Vernon, who had a total of 90 lines.")
+        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first seven characters with the most lines alone are all in Gryffindor and make up more than 60% of all lines spoken across all three movies! Aside from the top seven that make it so skewed, we have a bit of a mix in the houses of the last four characters. Keeping with the trend of all three of the other movies, both Snape and Draco are keeping up the Slytherin numbers, both making it to the top 11 most frequently speaking characters! The last two characters are Gilderoy Lockhart, who had almost all of the Ravenclaw lines in the Chamber of Secrets, and Uncle Vernon, who had a total of 90 lines.")
     with col2:
         st.altair_chart(linesPerCharacter(hp123, 1100, 630))
     
