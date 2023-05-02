@@ -233,6 +233,9 @@ hp123 = sqldf(query, globals())
 
 #Dataviz functions
 def linesPerHouse(data, width, height):
+    """This takes in data that is one of the hpn dataframes, and the width and height of the figure
+    It should return an altair chart that shows the total number of lines in each house from that data"""
+    
     houseLines = data.groupby('House', as_index=False).count() #Groups data by house
     houseLines['Number of Lines'] = houseLines['Sentence'] #Saved for the tooltip later
 
@@ -277,7 +280,8 @@ def linesPerHouse(data, width, height):
 
 def linesPerCharacter(data, width, height):
     """This takes in data that is one of the hpn dataframes, and the width and height of the figure
-    It should return an altair chart that contains the top 11 most speaking characters colored by their house"""
+    It should return an altair chart that shows the top 11 most speaking characters colored by their house"""
+
     #Defining houses
     Gryffindor=['Dumbledore', 'McGonagall', 'Hagrid', 'Harry', 'Mrs.Weasley', 'George', 'Fred', 'Ginny', 'Ron',\
                'Hermione', 'Neville', 'Seamus', 'Percy', 'Sir Nicholas', 'Fat Lady', 'Dean', 'Harry, Ron, and Hermione',\
@@ -336,7 +340,11 @@ def linesPerCharacter(data, width, height):
 
 
 def numWordsVP(data, width, height):
-    fig, ax = plt.subplots(figsize=(width, height))#w13.3 h10
+    """This takes in data that is one of the hpn dataframes, and the width and height of the figure
+    It should return a matplotlib figure that has seaborn violin plots on it representing the number of words per line by house"""
+    
+    #Creating the figure
+    fig, ax = plt.subplots(figsize=(width, height))
     fig.set_facecolor('White')
     
     #setting colors according to whether or not Hufflepuff has any lines 
@@ -371,6 +379,9 @@ def numWordsVP(data, width, height):
 
 
 def numWordsPerLineJP(data, width, height):
+    """This takes in data that is one of the hpn dataframes, and the width and height of the figure
+    It should return an altair chart that is a jitter plot that represents the number of words per sentence by house"""
+    
     #Setting house colors
     houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff', 'Muggle']
     colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
@@ -438,6 +449,9 @@ def numWordsPerLineJP(data, width, height):
 
 
 def numWordsPerLineHM(data, width, height):
+    """This takes in data that is one of the hpn dataframes, and the width and height of the figure
+    It should return an altair chart that shows a heatmap that takes a random sample of 25 lines per house and colors them by number of words per sentence"""
+    
     #Gets length of a sentence in characters as a potential sorting feature for a less consistent looking sort (aestetic purposes) not used currently, but I like to have as an option
     data['sentenceLen'] = [len(x) for x in data['Sentence']]
     
