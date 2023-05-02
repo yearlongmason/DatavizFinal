@@ -696,7 +696,10 @@ with tab4:
         st.markdown('This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines, more than six times as many as the house with the second-most lines, Slytherin. This is, of course, to be expected, as the movies are first and foremost about them. That being said, Slytherin and muggles come in with pretty close numbers. Muggles are only off by 19 lines! Next in the ranking of houses with the most lines is Ravenclaw, with 280 lines, with about 43% of all of those lines coming from Gilderoy Lockhart. Then, not very surprisingly, Hufflepuff comes in last with only 34 lines across all three movies.')
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('This chart is where we can start to see why the previous one representing the number of lines per house, is so skewed toward Gryffindor. The first 5 characters with the most lines alone are all in Gryffindor and make up more than 50% of all lines spoken!')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first seven characters with the most lines alone are all in Gryffindor and make up more than 60% of all lines spoken across all three movies! Aside from the top seven that make it so skewed, we have a bit of a mix in the houses of the last four characters. Keeping with the trend of all three of the other movies, both Snape and Draco are keeping up the Slytherin numbers, both making it to the top 11 most frequently speaking characters! The last two characters are Gilderoy Lockhart, who had almost all of the Ravenclaw lines in The Chamber of Secrets, and Uncle Vernon, who had a total of 90 lines.")
     with col2:
         st.altair_chart(linesPerCharacter(hp123, 1100, 630))
     col1, col2 = st.columns([4,1])
