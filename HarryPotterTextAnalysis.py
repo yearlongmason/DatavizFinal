@@ -713,7 +713,10 @@ with tab4:
         st.markdown("These violin plots are where we take our first dive into the number of words per sentence. Instead of telling us how many total lines each house has, this metric should explain how much content is actually in each line. From the looks of it, Slytherin and Gryffindor are the houses that share the record for the most number of words in a sentence; however, it looks like Gryffindor is more dense toward the bottom of their plot, which leads me to believe that Gryffindor lines tend to be a little shorter than Slytherin lines. I would also argue the same for Ravenclaw. If you look at the other three plots, you can notice that they're thicker toward the bottom than Slytherin and Ravenclaw, which would imply that they typically have shorter lines than Slytherin and Ravenclaw!")
     col1, col2 = st.columns([1,4])
     with col1:
-        st.markdown('The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!)')
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
+        st.markdown("The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!). From this plot, we can see that some of the ideas from the violin plots about Slytherin and Ravenclaw having more words per line tend to be true here too. They're still dense towards the bottom, but they do a pretty good job of having some more dense sentences too! As for Hufflepuff, it looks like they do a decent job of getting a decent amount of words in, especially considering the number of lines they have.")
     with col2:
         st.altair_chart(numWordsPerLineJP(hp123, 1100, 630))
     st.altair_chart(numWordsPerLineHM(hp123, 1350, 400))
