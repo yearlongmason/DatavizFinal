@@ -690,6 +690,9 @@ with tab4:
     with col1:
         st.altair_chart(linesPerHouse(hp123, 1100, 630))
     with col2:
+        st.markdown('')
+        st.markdown('')
+        st.markdown('')
         st.markdown('This is a great start to understanding what the rest of the data will start to look like. Of course, without surprise, Gryffindor has the most lines, more than six times as many as the house with the second-most lines, Slytherin. This is, of course, to be expected, as the movies are first and foremost about them. That being said, Slytherin and muggles come in with pretty close numbers. Muggles are only off by 19 lines! Next in the ranking of houses with the most lines is Ravenclaw, with 280 lines, with about 43% of all of those lines coming from Gilderoy Lockhart. Then, not very surprisingly, Hufflepuff comes in last with only 34 lines across all three movies.')
     col1, col2 = st.columns([1,4])
     with col1:
