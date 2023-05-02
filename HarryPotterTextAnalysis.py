@@ -549,7 +549,7 @@ with tab1:
         st.markdown("")
         st.markdown('This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first important thing to note is that Harry alone has 330 lines, which makes up about 20% of all lines in the movies. Aside from that, all six of the top six characters with the most lines are all in Gryffindor, and their lines make up about 67% of all lines! Besides Gryffindor, the next four characters on the chart are all outside of Gryffindor and offer a little bit of exploration into different houses. Slytherin definitely has two very important characters, Draco and Snape, who both made it into the top 11 most frequently spoken characters. Additionally, Quirrell makes a decent-sized dent in the Ravenclaw representation in this movie.')
     with col2:
-        st.altair_chart(linesPerCharacter(hp1, 1100, 630))
+        st.altair_chart(linesPerCharacter(hp1, 1100, 630), use_container_width=True)
     
     col1, col2 = st.columns([4,1])
     with col1:
@@ -568,9 +568,9 @@ with tab1:
         st.markdown("")
         st.markdown("The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!). Here we can see that each house is more dense towards the bottom, but for Slytherin and Ravenclaw, it looks like they tend to have more to say in relation to the number of lines they have in total. Also, it looks like muggles in this movie tend to say a lot less per line than some of the houses. These findings lead me to believe that Slytherins and Ravenclaws have fewer lines in total, but the lines they do have are often more meaningful!")
     with col2:
-        st.altair_chart(numWordsPerLineJP(hp1, 1100, 630))
+        st.altair_chart(numWordsPerLineJP(hp1, 1100, 630), use_container_width=True)
     
-    st.altair_chart(numWordsPerLineHM(hp1, 1350, 400))
+    st.altair_chart(numWordsPerLineHM(hp1, 1350, 400), use_container_width=True)
     st.button('New random sample', key='hp1')
     st.markdown("This heatmap is the last visualization about the number of words per line. There's a color scale on the right that says that the sentences with more words are darker, and the lighter ones have fewer words per line. This can generally be interpreted as the darker spots tending to be more dense with content, meaning more coming from that character, which is a representation of the house they are a part of. Keep in mind that this plot comes from a random sample of 25 lines from each house, so results can vary based on the sample. Feel free to press the button below a couple times to get a feel for the data using different samples!")
     
