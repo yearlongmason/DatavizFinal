@@ -608,14 +608,14 @@ with tab2:
         st.markdown('')
         st.markdown('')
         st.markdown('')
-        st.markdown("These violin plots are where we take our first dive into the number of words per sentence. Instead of telling us how many total lines each house has, this metric should explain how much content is actually in each line. It looks like in this movie, Slytherin has the line with the most words in it rather than Gryffindor, which is very cool to see! Additionally, it looks like Ravenclaw once again tends to have a higher word density per line than some of the other houses! This leads me to believe that while they don't have as many lines as Gryffindor, they have a lot to say in the ones they do have. Hufflepuff looks like it's pretty dense towards the bottom, which doesn't really say too much in the few lines that they do have.")
+        st.markdown("These violin plots are where we take our first dive into the number of words per sentence. Instead of telling us how many total lines each house has, this metric should explain how much content is actually in each line. It looks like in this movie, Slytherin has the line with the most words in it rather than Gryffindor, which is very cool to see! Additionally, it looks like Ravenclaw once again tends to have a higher word density per line than some of the other houses! This leads me to believe that while they don't have as many lines as Gryffindor, they have a lot to say in the ones they do have. Hufflepuff looks like it's pretty dense towards the bottom, which implies that they don't really say too much in the few lines that they do have.")
     
     col1, col2 = st.columns([1,4])
     with col1:
         st.markdown('')
         st.markdown('')
         st.markdown('')
-        st.markdown("The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!) One of the things that we saw in the violin plot that is also prevalent here is the Ravenclaw lines and how their distribution doesn't tend towards the bottom as much as some of the others do, partially because there's less data but also because they just generally say more than others do with their lines. Another notable thing about this plot is that Slytherin got the sentence with the largest number of words in this movie at 36 words!")
+        st.markdown("The first thing that really stands out in this jitter plot is that for the houses with more lines, such as Gryffindor, the points can get very dense, especially toward the bottom. Feel free to zoom in to get a closer view and explore some of the data on your own! (Double-click the plot to reset the view!) One of the things that I saw in the violin plot that is also prevalent here is the Ravenclaw lines and how their distribution doesn't tend towards the bottom as much as some of the others do, partially because there's less data but also because they just generally say more than others do with their lines. Another notable thing about this plot is that Slytherin got the sentence with the largest number of words in this movie at 36 words!")
     with col2:
         st.altair_chart(numWordsPerLineJP(hp2, 1100, 630))
     
@@ -694,7 +694,7 @@ with tab4:
         st.markdown('')
         st.markdown('')
         st.markdown('')
-        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first seven characters with the most lines alone are all in Gryffindor and make up more than 60% of all lines spoken across all three movies! Aside from the top seven that make it so skewed, we have a bit of a mix in the houses of the last four characters. Keeping with the trend of all three of the other movies, both Snape and Draco are keeping up the Slytherin numbers, both making it to the top 11 most frequently speaking characters! The last two characters are Gilderoy Lockhart, who had almost all of the Ravenclaw lines in the Chamber of Secrets, and Uncle Vernon, who had a total of 90 lines.")
+        st.markdown("This chart is where we can start to see why the previous one, representing the number of lines per house, is so skewed toward Gryffindor. The first seven characters with the most lines alone are all in Gryffindor and make up more than 60% of all lines spoken across all three movies! Aside from the top seven that make it so skewed, we have a bit of a mix in the houses of the last four characters. Keeping with the trend of the other movies, both Snape and Draco are keeping up the Slytherin numbers, both making it to the top 11 most frequently speaking characters! The last two characters are Gilderoy Lockhart, who had almost all of the Ravenclaw lines in the Chamber of Secrets, and Uncle Vernon, who had a total of 90 lines.")
     with col2:
         st.altair_chart(linesPerCharacter(hp123, 1100, 630))
     
