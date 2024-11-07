@@ -1,10 +1,14 @@
+# Harry Potter Script Analysis
+# HarryPotterTextAnalysis.py
+# Author: Mason Lee
+
 import pandas as pd
 import numpy as np
 import altair as alt
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pandasql import sqldf
 import streamlit as st
+from pandasql import sqldf
 from PIL import Image
 import base64
 
@@ -12,7 +16,7 @@ import base64
 #Data cleaning
 
 #Harry Potter and the Sorcerer's Stone (hp1) data cleaning
-hp1 = pd.read_csv('HarryPotter1.csv', sep=';')
+hp1 = pd.read_csv('data/HarryPotter1.csv', sep=';')
 
 #Normalizing text (all lowercase, no special characters)
 alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ',\
@@ -79,7 +83,7 @@ hp1['MovieNumber'] = 1
 
 
 #Harry Potter and the Chamber of Secrets (hp2) data cleaning
-hp2 = pd.read_csv('HarryPotter2.csv', sep=';')
+hp2 = pd.read_csv('data/HarryPotter2.csv', sep=';')
 
 #Normalizing text (all lowercase, no special characters)
 alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ',\
@@ -149,7 +153,7 @@ hp2['MovieNumber'] = 2
 
 
 #Harry Potter and the Prisoner of Azkaban (hp3) data cleaning
-hp3 = pd.read_csv('HarryPotter3.csv', sep=';')
+hp3 = pd.read_csv('data/HarryPotter3.csv', sep=';')
 
 #Renaming columns to be consistent with the other 2 dataframes
 hp3.rename(columns = {'CHARACTER':'Character', 'SENTENCE':'Sentence'}, inplace=True)
