@@ -5,12 +5,12 @@
 import pandas as pd
 
 
-"""
-This function will get HarryPotter1.csv and perform a lot of data cleaning on 
-it to get it into a nice and usable format
-This function returns a pandas DataFrame with the clean Harry Potter 1 data
-"""
 def getHP1():
+    """
+    This function will get HarryPotter1.csv and perform a lot of data cleaning on 
+    it to get it into a nice and usable format
+    This function returns a pandas DataFrame with the clean Harry Potter 1 data
+    """
     # Harry Potter and the Sorcerer's Stone (hp1) data cleaning
     hp1 = pd.read_csv('data/HarryPotter1.csv', sep=';')
 
@@ -81,13 +81,12 @@ def getHP1():
     return hp1
 
 
-
-"""
-This function will get HarryPotter2.csv and perform a lot of data cleaning on 
-it to get it into a nice and usable format
-This function returns a pandas DataFrame with the clean Harry Potter 2 data
-"""
 def getHP2():
+    """
+    This function will get HarryPotter2.csv and perform a lot of data cleaning on 
+    it to get it into a nice and usable format
+    This function returns a pandas DataFrame with the clean Harry Potter 2 data
+    """
     # Harry Potter and the Chamber of Secrets (hp2) data cleaning
     hp2 = pd.read_csv('data/HarryPotter2.csv', sep=';')
 
@@ -162,13 +161,12 @@ def getHP2():
     return hp2
 
 
-
-"""
-This function will get HarryPotter3.csv and perform a lot of data cleaning on 
-it to get it into a nice and usable format
-This function returns a pandas DataFrame with the clean Harry Potter 3 data
-"""
 def getHP3():
+    """
+    This function will get HarryPotter3.csv and perform a lot of data cleaning on 
+    it to get it into a nice and usable format
+    This function returns a pandas DataFrame with the clean Harry Potter 3 data
+    """
     # Harry Potter and the Prisoner of Azkaban (hp3) data cleaning
     hp3 = pd.read_csv('data/HarryPotter3.csv', sep=';')
 
