@@ -352,7 +352,7 @@ def numWordsVP(data, width, height):
         colors = ['#be0119', '#009500', '#069af3', '#feb308', '#5f6b73']
         
     # Creating the actual plot
-    sns.violinplot(data=data, x='House', y='numWords', linewidth=1.5, palette=colors, order = houses)
+    sns.violinplot(data=data, x='House', y='numWords', linewidth=1.5, palette=colors, order=houses, side='low')
     
     #ax.title not being used in streamlit implimentation becasue the title gets a little weird, so I manually add it in
     #ax.set_title('Number of Words Spoken Per Line by House', fontsize=18, fontweight='bold', loc='left', color='xkcd:grey')
